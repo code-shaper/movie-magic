@@ -1,12 +1,11 @@
 import { clsx } from 'clsx';
 import type * as React from 'react';
 
-type ReactButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
-
 export const buttonVariants = ['default', 'primary', 'secondary'] as const;
 export type ButtonVariant = (typeof buttonVariants)[number];
 
-export interface ButtonProps extends ReactButtonProps {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
 }
 
@@ -25,7 +24,7 @@ const variantStyles: Record<ButtonVariant, string> = {
 // ------------------------------------
 
 export function Button({
-  className, // eslint-disable-line react/prop-types
+  className,
   variant = DefaultButtonProps.variant,
   children,
   ...props

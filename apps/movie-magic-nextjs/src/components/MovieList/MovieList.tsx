@@ -12,8 +12,7 @@ async function getMovies(): Promise<Movie[]> {
 
   const resMovies = await fetch(`${apiUrl}/top-10-movies`);
   // returns a promise that resolves to movies in JSON formatted array
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  return resMovies.json();
+  return resMovies.json() as Promise<Movie[]>;
 }
 
 export async function MovieList() {
