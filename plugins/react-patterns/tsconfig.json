@@ -4,5 +4,6 @@
     "rootDir": "src",
     "outDir": "dist"
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts"],
+  "exclude": ["**/templates", "**/expected-output", "**/test-output"]
 }
