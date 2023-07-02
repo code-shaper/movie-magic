@@ -19,7 +19,7 @@ export function MovieList({ movies }: MovieListProps) {
       </thead>
       <tbody>
         {movies.map((movie, index) => (
-          <tr key={movie.name}>
+          <tr key={movie.id}>
             <td className="text-center">{index + 1}</td>
             <td>{movie.name}</td>
             <td className="text-center">{movie.year}</td>
