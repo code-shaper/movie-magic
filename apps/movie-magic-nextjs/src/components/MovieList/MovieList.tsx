@@ -1,10 +1,8 @@
-'use client';
-
 import type { Movie } from '@/models';
 import { Button } from '@movie-magic/ui-lib';
 
 async function getMovies(): Promise<Movie[]> {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const apiUrl = process.env.API_URL;
   console.log('----> API_URL', apiUrl);
   if (apiUrl === undefined) {
     return [];
@@ -31,7 +29,7 @@ export async function MovieList() {
       </thead>
       <tbody>
         {movies.map((movie: Movie, index: number) => (
-          <tr key={movie.name}>
+          <tr key={movie.id}>
             <td className="text-center">{index + 1}</td>
             <td>{movie.name}</td>
             <td className="text-center">{movie.year}</td>

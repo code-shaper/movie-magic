@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-const apiUrl = import.meta.env.VITE_API_URL;
+async function fetchMovies(): Promise<Movie[]> {
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const resMovies = await axios.get<Movie[]>(`${apiUrl}/movies`);
 
-function fetchMovies(): Promise<Movie[]> {
-  return axios.get(`${apiUrl}/movies`).then((response) => response.data);
+  return resMovies.data;
 }
 
 export function useMovies() {

@@ -10,7 +10,7 @@ const port = process.env.PORT ?? 8080;
 const app = createApp();
 const server = createServer(app);
 server.listen(port, () => {
-  console.log(`Movie Magic server listening on port ${port}`);
+  console.log(`Movie Magic API server listening on port ${port}`);
 });
 
 /*

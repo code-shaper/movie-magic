@@ -5,7 +5,8 @@ import { fetchHookGenerator } from './index';
 describe('fetchHookGenerator', () => {
   test('should create a new fetchHook from templates', async () => {
     // suppress console logs
-    jest.spyOn(console, 'log').mockImplementation();
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    jest.spyOn(console, 'log').mockImplementation(() => {});
 
     // Delete test-output if it exists
     const testOutput = path.join(__dirname, 'test-output');

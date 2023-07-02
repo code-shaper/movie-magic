@@ -19,12 +19,8 @@ async function startMockServiceWorker() {
 
 startMockServiceWorker()
   .then(() => {
-    const rootElement = document.getElementById('root');
-    if (rootElement === null) {
-      throw new Error('no root element found');
-    }
-
-    const root = createRoot(rootElement);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const root = createRoot(document.getElementById('root')!);
     root.render(
       <React.StrictMode>
         <QueryClientProvider client={queryClient}>

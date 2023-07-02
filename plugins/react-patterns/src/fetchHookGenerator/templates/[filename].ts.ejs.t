@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-const apiUrl = import.meta.env.VITE_API_URL;
+async function fetch<%= itemNamePascalCase %>(): Promise<<%= returnType %>> {
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const res<%= itemNamePascalCase %> = await axios.get<<%= returnType %>>(`${apiUrl}/<%= itemNameKebabCase %>`);
 
-function fetch<%= itemNamePascalCase %>(): Promise<<%= returnType %>> {
-  return axios.get(`${apiUrl}/<%= itemNameKebabCase %>`).then((response) => response.data);
+  return res<%= itemNamePascalCase %>.data;
 }
 
 export function <%= hookName %>() {
