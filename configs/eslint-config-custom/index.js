@@ -1,1 +1,1 @@
-module.exports = require('./strict');
+module.exports = require('./lenient');
