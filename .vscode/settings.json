@@ -3,6 +3,7 @@
     "autodocs",
     "camelcase",
     "clsx",
+    "codegen",
     "commitlint",
     "copyfiles",
     "ghpages",
