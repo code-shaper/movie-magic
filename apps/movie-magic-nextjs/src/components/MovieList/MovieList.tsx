@@ -2,14 +2,11 @@ import type { Movie } from '@/models';
 import { Button } from '@movie-magic/ui-lib';
 
 async function getMovies(): Promise<Movie[]> {
-  const apiUrl = process.env.API_URL;
-  console.log('----> API_URL', apiUrl);
-  if (apiUrl === undefined) {
-    return [];
-  }
-
-  const resMovies = await fetch(`${apiUrl}/top-10-movies`);
-  // returns a promise that resolves to movies in JSON formatted array
+  const { API_URL } = process.env;
+  const url = `${API_URL}/top-10-movies`;
+  console.log('----> HTTP GET', url);
+  // ----- Cached Data -----
+  const resMovies = await fetch(url);
   return resMovies.json() as Promise<Movie[]>;
 }
 

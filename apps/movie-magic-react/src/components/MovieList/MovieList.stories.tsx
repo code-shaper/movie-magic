@@ -19,19 +19,19 @@ export const Basic = {
   args: {
     movies: [
       {
-        id: '65667a66-d848-4eba-a2ca-c167c39d8f57',
+        id: '1001',
         name: 'The Shawshank Redemption',
         year: 1994,
         rating: 9.3,
       },
       {
-        id: '116dac8b-e75b-4abb-8da3-4f72e2274e50',
+        id: '1002',
         name: 'The Godfather',
         year: 1972,
         rating: 9.2,
       },
       {
-        id: '2fd1e450-6622-43b7-977f-2640a48cb032',
+        id: '1003',
         name: 'The Godfather: Part II',
         year: 1974,
         rating: 9.0,
