@@ -1,4 +1,4 @@
-import type { Movie } from '../models';
+import type { Movie } from '@/models';
 
 export const mockMovies: Movie[] = [
   {

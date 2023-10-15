@@ -1,5 +1,5 @@
 import { MovieList } from './MovieList';
-import { render, screen } from '../../test/test-utils';
+import { render, screen } from '@/test/test-utils';
 
 const movies = [
   {

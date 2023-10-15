@@ -1,5 +1,5 @@
 import { Button, buttonVariants } from './Button';
-import { render } from '../../test/test-utils';
+import { render } from '@/test/test-utils';
 
 describe('<Button />', () => {
   it('should render correct default properties', () => {
