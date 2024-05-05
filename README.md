@@ -7,7 +7,7 @@ best practices. We have provided sample applications using the following
 frameworks:
 
 1. [Next.js](https://nextjs.org/)
-2. [Vite](https://vitejs.dev/) (WIP)
+2. [Vite](https://vitejs.dev/)
 3. [Remix](https://remix.run/) (WIP)
 4. [Express](https://expressjs.com/) (WIP)
 
@@ -37,7 +37,9 @@ npm run storybook
 Open browser windows at the following URLs to see the respective apps:
 
 1. http://localhost:3000/: Movie Magic | Next.js
-2. http://localhost:6006/: Storybook
+2. http://localhost:3001/: Movie Magic | Vite
+3. http://localhost:6006/: Storybook | Next.js
+4. http://localhost:6007/: Storybook | Vite
 
 > Note: Do not run `npm install` or `npm ci` in any of the subdirectories. It
 > will break the build. There should be only one `package-lock.json` file in the
