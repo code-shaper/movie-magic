@@ -46,7 +46,7 @@
   "dependencies": {
     "@code-shaper/commitlint-config": "^1.*",
     "@code-shaper/eslint-config": "^1.*",
-    "@code-shaper/nextjs": "^1.1.7",
+    "@code-shaper/vite": "^1.0.3",
     "@commitlint/cz-commitlint": "^19.2.0",
     "@manypkg/cli": "latest",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
