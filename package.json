@@ -46,9 +46,10 @@
   "dependencies": {
     "@code-shaper/commitlint-config": "^1.*",
     "@code-shaper/eslint-config": "^1.*",
-    "@code-shaper/vite": "^1.0.3",
+    "@code-shaper/plugin": "^1.*",
     "@commitlint/cz-commitlint": "^19.2.0",
     "@manypkg/cli": "latest",
+    "@movie-magic/website": "*",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "code-shaper": "latest",
     "commitizen": "^4.3.0",
