@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Magic Website</title>
+    <title><%= itemNameCapitalCase %></title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Movie Magic Website</h1>
+      <h1><%= itemNameCapitalCase %></h1>
       <p>
         This website was generated using the <em>Instant Sites</em> plugin.
         Please edit <code>/src/index.html</code> to add content.

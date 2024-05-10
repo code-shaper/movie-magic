@@ -1,4 +1,4 @@
-# Movie Magic Website
+# <%= itemNameCapitalCase %>
 
 This website was generated using the Instant Sites plugin.
 
