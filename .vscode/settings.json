@@ -7,13 +7,15 @@
     "copyfiles",
     "deepmerge",
     "dword",
+    "isbot",
     "manypkg",
     "nextjs",
     "tailwindcss",
     "tanstack",
     "testid",
     "tsup",
-    "turborepo"
+    "turborepo",
+    "typecheck"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
