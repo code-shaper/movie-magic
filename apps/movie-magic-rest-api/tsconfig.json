@@ -1,0 +1,12 @@
+{
+  "extends": "@code-shaper/typescript-config/typescript-library.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/*.stories.tsx", "**/test/*"]
+}

@@ -46,7 +46,7 @@
   "dependencies": {
     "@code-shaper/commitlint-config": "^1.*",
     "@code-shaper/eslint-config": "^1.*",
-    "@code-shaper/remix": "^1.*",
+    "@code-shaper/express": "^1.*",
     "@commitlint/cz-commitlint": "^19.2.0",
     "@manypkg/cli": "latest",
     "@movie-magic/instant-sites": "*",
