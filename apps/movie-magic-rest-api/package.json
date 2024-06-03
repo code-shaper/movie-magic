@@ -1,6 +1,6 @@
 {
   "name": "@movie-magic/movie-magic-rest-api",
-  "description": "Movie Magic Rest Api",
+  "description": "Movie Magic Rest API",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "types": "./src/index.ts",

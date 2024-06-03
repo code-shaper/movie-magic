@@ -1,10 +1,12 @@
 {
   "cSpell.words": [
+    "asynciterable",
     "autodocs",
     "clsx",
     "codegen",
     "commitlint",
     "copyfiles",
+    "datasources",
     "deepmerge",
     "dword",
     "isbot",
