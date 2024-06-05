@@ -1,4 +1,5 @@
 import { MoviesApi } from './datasources/MoviesApi';
+import { PeopleApi } from './datasources/PeopleApi';
 import { resolvers } from './resolvers';
 import type { DataSourceContext } from './types/DataSourceContext';
 import { ApolloServer } from '@apollo/server';
@@ -32,6 +33,7 @@ async function main() {
     context: async () => ({
       dataSources: {
         moviesApi: new MoviesApi(),
+        peopleApi: new PeopleApi(),
       },
     }),
   });

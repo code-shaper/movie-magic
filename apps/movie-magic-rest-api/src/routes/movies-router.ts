@@ -16,7 +16,6 @@ moviesRouter.get('/', (req, res) => {
 
   // ----- filter by certifications -----
   let certFilters = url.searchParams.getAll('cert');
-  console.log('certFilters:', certFilters);
   if (certFilters.length > 0) {
     // convert certFilters to upper case
     certFilters = certFilters.map((certFilter) => certFilter.toUpperCase());
@@ -27,7 +26,6 @@ moviesRouter.get('/', (req, res) => {
 
   // ----- sort -----
   const sort = url.searchParams.get('sort');
-  console.log('sort:', sort);
   if (sort !== null) {
     switch (sort) {
       case 'RANK_ASC':
@@ -44,7 +42,6 @@ moviesRouter.get('/', (req, res) => {
 
   const pageString = url.searchParams.get('page');
   const perPageString = url.searchParams.get('perPage');
-  console.log('pageString', pageString, 'perPageString', perPageString);
   if (pageString !== null && perPageString !== null) {
     page = Math.max(1, parseInt(pageString, 10));
     perPage = Math.max(1, parseInt(perPageString, 10));
