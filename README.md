@@ -8,8 +8,7 @@ frameworks:
 
 1. [Next.js](https://nextjs.org/)
 2. [Vite](https://vitejs.dev/)
-3. [Remix](https://remix.run/) (WIP)
-4. [Express](https://expressjs.com/) (WIP)
+3. [Remix](https://remix.run/)
 
 To see step-by-step instructions for creating these apps, visit
 [Getting Started](http://localhost:4000/docs/getting-started/core-concepts) in
@@ -25,10 +24,17 @@ Code Shaper docs.
 ## Getting Started
 
 ```shell
+# create environment files
+cp apps/movie-magic-nextjs/.env.example apps/movie-magic-nextjs/.env.local
+cp apps/movie-magic-vite/.env.example apps/movie-magic-vite/.env.local
+
+# build all apps
 nvm use        # use the required version of node
 npm ci         # install dependencies
-npm run build  # build all packages
-npm run dev    # run apps
+npm run build  # build all apps
+
+# run all apps
+npm run dev
 
 # in a separate shell
 npm run storybook
