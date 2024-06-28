@@ -4,7 +4,7 @@ import { Router } from 'express';
 
 export const moviesRouter = Router();
 
-/** get all movies */
+/** get movies */
 moviesRouter.get('/', (req, res) => {
   // hold result in moviesResult
   let moviesResult = movies as unknown as Movie[];
