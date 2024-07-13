@@ -85,7 +85,7 @@ type Movie {
   cast: [CastMember!]!
   certificate: Certificate!
   directors: [Person!]!
-  genres: [String!]!
+  genres: [Genre!]!
   image: Image
   isFeatured: Boolean!
   rank: Int!
@@ -94,14 +94,6 @@ type Movie {
   runtime: Int!
   tagline: String
   writers: [Person!]!
-}
-
-# ---------- Person ----------
-
-type Person {
-  id: ID!
-  name: String!
-  image: Image
 }
 
 # ---------- CastMember ----------
@@ -126,11 +118,28 @@ type Certificate {
   ratingReason: String
 }
 
-# ---------- MovieRatingsSummary ----------
+# ---------- Genre ----------
 
-type MovieRatingsSummary {
-  aggregateRating: Float!
-  voteCount: Int!
+enum Genre {
+  Action
+  Adventure
+  Animation
+  Biography
+  Comedy
+  Crime
+  Drama
+  Family
+  Fantasy
+  History
+  Horror
+  Music
+  Mystery
+  Romance
+  SciFi
+  Sport
+  Thriller
+  War
+  Western
 }
 
 # ---------- Image ----------
@@ -139,6 +148,21 @@ type Image {
   url: String!
   width: Int!
   height: Int!
+}
+
+# ---------- MovieRatingsSummary ----------
+
+type MovieRatingsSummary {
+  aggregateRating: Float!
+  voteCount: Int!
+}
+
+# ---------- Person ----------
+
+type Person {
+  id: ID!
+  name: String!
+  image: Image
 }
 
 # ----- Errors -----

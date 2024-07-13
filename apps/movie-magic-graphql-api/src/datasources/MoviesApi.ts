@@ -1,6 +1,7 @@
 import moviesData from './movies.json';
 import type {
   Certificate,
+  Genre,
   Image,
   MovieRatingsSummary,
   MoviesRequest,
@@ -17,7 +18,7 @@ interface DbMovie {
   certificate: Certificate;
   description: string;
   directorIds: string[];
-  genres: string[];
+  genres: Genre[];
   id: string;
   image?: Image;
   isFeatured: boolean;
