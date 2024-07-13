@@ -21,6 +21,7 @@ input MoviesRequest {
 
 input MovieFilterSpec {
   certs: [CertificateRating!]
+  featured: Boolean
   genres: [Genre!]
   search: String
 }

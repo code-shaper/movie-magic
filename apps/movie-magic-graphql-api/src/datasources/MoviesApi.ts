@@ -55,28 +55,30 @@ export class MoviesApi {
     let moviesResult = movies;
 
     // ----- filter by search string -----
-    const searchString = filterSpec?.search;
-    if (
-      searchString !== null &&
-      searchString !== undefined &&
-      searchString !== ''
-    ) {
+    const searchString = filterSpec?.search ?? '';
+    if (searchString !== '') {
       moviesResult = moviesResult.filter((movie) =>
         movie.name.toLowerCase().includes(searchString.toLowerCase())
       );
     }
 
+    // ----- filter by featured -----
+    const featured = filterSpec?.featured ?? false;
+    if (featured) {
+      moviesResult = moviesResult.filter((movie) => movie.isFeatured);
+    }
+
     // ----- filter by certifications -----
-    const certFilters = filterSpec?.certs;
-    if (certFilters && certFilters.length > 0) {
+    const certFilters = filterSpec?.certs ?? [];
+    if (certFilters.length > 0) {
       moviesResult = moviesResult.filter((movie) =>
         certFilters.includes(movie.certificate.rating)
       );
     }
 
     // ----- filter by genres -----
-    const genreFilters = filterSpec?.genres;
-    if (genreFilters && genreFilters.length > 0) {
+    const genreFilters = filterSpec?.genres ?? [];
+    if (genreFilters.length > 0) {
       moviesResult = moviesResult.filter((movie) =>
         // does at least one genre from movies.genres match genreFilters
         movie.genres.some((genre) => genreFilters.includes(genre))
@@ -100,11 +102,8 @@ export class MoviesApi {
     }
 
     // ----- paginate -----
-    const page = pageSpec?.page !== undefined ? pageSpec.page : 1;
-    const perPage =
-      pageSpec?.perPage !== undefined
-        ? pageSpec.perPage
-        : Math.max(1, moviesResult.length);
+    const page = pageSpec?.page ?? 1;
+    const perPage = pageSpec?.perPage ?? Math.max(1, moviesResult.length);
 
     // compute totalItems before slicing the array
     const totalItems = moviesResult.length;
