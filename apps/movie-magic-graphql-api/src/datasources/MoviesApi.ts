@@ -1,4 +1,6 @@
 import moviesData from './movies.json';
+// eslint-disable-next-line @dword-design/import-alias/prefer-alias
+import { MovieSortSpec } from '../generated/resolvers-types';
 import type {
   Certificate,
   Genre,
@@ -52,6 +54,18 @@ export class MoviesApi {
     // hold result in moviesResult
     let moviesResult = movies;
 
+    // ----- filter by search string -----
+    const searchString = filterSpec?.search;
+    if (
+      searchString !== null &&
+      searchString !== undefined &&
+      searchString !== ''
+    ) {
+      moviesResult = moviesResult.filter((movie) =>
+        movie.name.toLowerCase().includes(searchString.toLowerCase())
+      );
+    }
+
     // ----- filter by certifications -----
     const certFilters = filterSpec?.certs;
     if (certFilters && certFilters.length > 0) {
@@ -60,12 +74,26 @@ export class MoviesApi {
       );
     }
 
+    // ----- filter by genres -----
+    const genreFilters = filterSpec?.genres;
+    if (genreFilters && genreFilters.length > 0) {
+      moviesResult = moviesResult.filter((movie) =>
+        // does at least one genre from movies.genres match genreFilters
+        movie.genres.some((genre) => genreFilters.includes(genre))
+      );
+    }
+
     // ----- sort -----
     if (sortSpec) {
       switch (sortSpec) {
-        case 'RANK_ASC':
+        case MovieSortSpec.RankAsc:
           moviesResult = moviesResult.sort(
             (movie1, movie2) => movie1.rank - movie2.rank
+          );
+          break;
+        case MovieSortSpec.ReleaseYearDesc:
+          moviesResult = moviesResult.sort(
+            (movie1, movie2) => movie2.releaseYear - movie1.releaseYear
           );
           break;
       }

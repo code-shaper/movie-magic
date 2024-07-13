@@ -21,10 +21,13 @@ input MoviesRequest {
 
 input MovieFilterSpec {
   certs: [CertificateRating!]
+  genres: [Genre!]
+  search: String
 }
 
 enum MovieSortSpec {
   RANK_ASC
+  RELEASE_YEAR_DESC
 }
 
 input PageSpec {
