@@ -3,7 +3,6 @@
   "description": "Movie Magic GraphQL API",
   "version": "0.0.1",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "build": "run-s _codegen _build",
     "clean": "rimraf .turbo node_modules dist coverage src/generated",
