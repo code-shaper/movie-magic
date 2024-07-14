@@ -9,6 +9,10 @@ frameworks:
 1. [Next.js](https://nextjs.org/)
 2. [Vite](https://vitejs.dev/)
 3. [Remix](https://remix.run/)
+4. Ultimate: [Next.js](https://nextjs.org/) +
+   [Tailwind CSS](https://tailwindcss.com/) +
+   [shadcn/ui](https://ui.shadcn.com/) +
+   [Apollo GraphQL](https://www.apollographql.com/docs/react/)
 
 To see step-by-step instructions for creating these apps, visit
 [Getting Started](http://localhost:4000/docs/getting-started/core-concepts) in
@@ -27,6 +31,7 @@ Code Shaper docs.
 # create environment files
 cp apps/movie-magic-nextjs/.env.example apps/movie-magic-nextjs/.env.local
 cp apps/movie-magic-vite/.env.example apps/movie-magic-vite/.env.local
+cp apps/movie-magic-ultimate/.env.example apps/movie-magic-ultimate/.env.local
 
 # build all apps
 nvm use        # use the required version of node
@@ -45,8 +50,10 @@ Open browser windows at the following URLs to see the respective apps:
 1. http://localhost:3000/: Movie Magic | Next.js
 2. http://localhost:3001/: Movie Magic | Vite
 3. http://localhost:3002/: Movie Magic | Remix
-4. http://localhost:6006/: Storybook | Next.js
-5. http://localhost:6007/: Storybook | Vite
+4. http://localhost:3003/: Movie Magic | Ultimate
+5. http://localhost:6006/: Storybook | Next.js
+6. http://localhost:6007/: Storybook | Vite
+7. http://localhost:6008/: Storybook | Ultimate
 
 > Note: Do not run `npm install` or `npm ci` in any of the subdirectories. It
 > will break the build. There should be only one `package-lock.json` file in the

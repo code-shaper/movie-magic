@@ -46,7 +46,7 @@
   "dependencies": {
     "@code-shaper/commitlint-config": "^1.*",
     "@code-shaper/eslint-config": "^1.*",
-    "@code-shaper/graphql-server": "^1.*",
+    "@code-shaper/nextjs": "^1.*",
     "@commitlint/cz-commitlint": "^19.2.0",
     "@manypkg/cli": "^0.21.4",
     "@movie-magic/instant-sites": "*",
