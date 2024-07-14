@@ -1,5 +1,7 @@
 # Movie Magic
 
+Live Demo: [Movie Magic Ultimate](https://movie-magic-ultimate.vercel.app/)
+
 This repository was bootstrapped with [Code Shaper](https://code-shaper.dev).
 
 It shows how Code Shaper can be used to create applications faster and using
