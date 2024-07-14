@@ -9,7 +9,7 @@
     "ci-validate": "run-s build-storybook",
     "clean": "rimraf .turbo node_modules build coverage .next next-env.d.ts out src/generated storybook-static",
     "dev": "next dev --port 3003",
-    "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,md}'",
+    "format": "prettier --list-different '**/*.{css,js,jsx,ts,tsx,json,md}'",
     "format:fix": "npm run format -- --write",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix",
@@ -20,9 +20,14 @@
     "_codegen": "echo add any code generation steps here"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.408.0",
     "next": "^14.2.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
