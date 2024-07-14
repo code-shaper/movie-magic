@@ -2,6 +2,7 @@
   "cSpell.words": [
     "asynciterable",
     "autodocs",
+    "Bhatia",
     "clsx",
     "codegen",
     "commitlint",
@@ -11,6 +12,7 @@
     "dword",
     "isbot",
     "manypkg",
+    "Naresh",
     "nextjs",
     "roboto",
     "tailwindcss",
@@ -18,7 +20,8 @@
     "testid",
     "tsup",
     "turborepo",
-    "typecheck"
+    "typecheck",
+    "Watchlist"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"

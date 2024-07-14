@@ -1,8 +1,10 @@
 import { AppHeader } from '@/components/AppHeader';
+import { siteConfig } from '@/config/site';
 import { AppProvider } from '@/providers';
 import type { Metadata } from 'next';
 import { unstable_noStore as noStore } from 'next/cache';
 import { Inter, Roboto_Mono as RobotoMono } from 'next/font/google';
+
 import './globals.css';
 
 /*
@@ -19,8 +21,56 @@ const robotoMono = RobotoMono({
 });
 
 export const metadata: Metadata = {
-  title: 'Movie Magic Ultimate',
-  description: 'Movie Magic Ultimate',
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
+  metadataBase: new URL(siteConfig.url),
+  description: siteConfig.description,
+  keywords: [
+    'Next.js',
+    'React',
+    'Tailwind CSS',
+    'Radix UI',
+    'shadcn/ui',
+    'Apollo GraphQL',
+  ],
+  authors: [
+    {
+      name: 'Naresh Bhatia',
+      url: 'https://nareshbhatia.dev',
+    },
+  ],
+  creator: 'Naresh Bhatia',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1280,
+        height: 698,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: '@NareshJBhatia',
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
 interface RootLayoutProps {
