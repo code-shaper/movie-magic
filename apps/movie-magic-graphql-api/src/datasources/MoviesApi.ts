@@ -1,6 +1,5 @@
 import moviesData from './movies.json';
-// eslint-disable-next-line @dword-design/import-alias/prefer-alias
-import { MovieSortSpec } from '../generated/resolvers-types';
+import { MovieSortSpec } from '@/generated/resolvers-types';
 import type {
   Certificate,
   Genre,

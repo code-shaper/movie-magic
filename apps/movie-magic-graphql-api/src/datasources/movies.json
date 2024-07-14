@@ -416,6 +416,7 @@
       "width": 1299,
       "height": 1929
     },
+    "isFeatured": false,
     "rank": 34,
     "ratingsSummary": {
       "aggregateRating": 8.6,
@@ -450,6 +451,7 @@
       "width": 2331,
       "height": 3454
     },
+    "isFeatured": false,
     "rank": 85,
     "ratingsSummary": {
       "aggregateRating": 8.4,
