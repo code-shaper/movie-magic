@@ -2,7 +2,7 @@
   "name": "@movie-magic/movie-magic-rest-api",
   "description": "Movie Magic Rest API",
   "version": "0.0.1",
-  "main": "./src/index.ts",
+  "main": "index.js",
   "sideEffects": false,
   "scripts": {
     "build": "tsup",
@@ -19,7 +19,8 @@
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "tslib": "^2.6.3"
   },
   "devDependencies": {
     "@code-shaper/eslint-config": "^1.*",

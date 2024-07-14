@@ -2,7 +2,7 @@
   "name": "@movie-magic/movie-magic-graphql-api",
   "description": "Movie Magic GraphQL API",
   "version": "0.0.1",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "run-s _codegen _build",
     "clean": "rimraf .turbo node_modules dist coverage src/generated",
@@ -19,7 +19,8 @@
   "dependencies": {
     "@apollo/server": "^4.10.4",
     "graphql": "^16.8.1",
-    "graphql-tag": "latest"
+    "graphql-tag": "latest",
+    "tslib": "^2.6.3"
   },
   "devDependencies": {
     "@code-shaper/eslint-config": "^1.*",
