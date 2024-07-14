@@ -1,6 +1,7 @@
 'use client';
 
 import { useMockServiceWorker } from './useMockServiceWorker';
+import { ThemeProvider } from 'next-themes';
 
 export interface AppProviderProps {
   baseApiUrl: string;
@@ -19,5 +20,14 @@ export function AppProvider({
     return undefined;
   }
 
-  return <>{children}</>;
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="dark"
+      disableTransitionOnChange
+      enableSystem
+    >
+      {children}
+    </ThemeProvider>
+  );
 }
