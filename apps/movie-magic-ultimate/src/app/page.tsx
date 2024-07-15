@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <div className="container relative mx-auto max-w-screen-xl py-4">
       <div className="grid text-center lg:grid-cols-2 lg:text-left">
-        <div className="flex flex-col items-center space-y-6 p-8 lg:items-start">
+        <div className="flex flex-col items-center space-y-6 p-8 lg:items-start lg:justify-center">
           <div className="space-y-3">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl/none xl:text-6xl/none">
               <span className="block">Unlimited movies</span>
