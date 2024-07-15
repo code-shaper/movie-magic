@@ -2,6 +2,7 @@
 
 import { mainNavItems } from '@/config/main-nav';
 import { siteConfig } from '@/config/site';
+import { Icons } from '@/icons';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -10,11 +11,12 @@ export function MainNav() {
   const pathname = usePathname();
 
   return (
-    <>
-      <Link className="flex items-center space-x-2" href="/">
+    <div className="hidden min-[500px]:flex">
+      <Link className="mr-4 flex items-center space-x-2 lg:mr-6" href="/">
+        <Icons.film className="size-6" />
         <span className="font-bold">{siteConfig.name}</span>
       </Link>
-      <nav className="hidden items-center gap-6 text-sm md:flex">
+      <nav className="flex items-center gap-4 text-sm lg:gap-6">
         {mainNavItems.map((item) => (
           <Link
             className={cn(
@@ -30,6 +32,6 @@ export function MainNav() {
           </Link>
         ))}
       </nav>
-    </>
+    </div>
   );
 }
