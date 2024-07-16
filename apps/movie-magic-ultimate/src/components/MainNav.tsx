@@ -14,7 +14,7 @@ export function MainNav() {
     <div className="hidden min-[500px]:flex">
       <Link className="mr-4 flex items-center space-x-2 lg:mr-6" href="/">
         <Icons.film className="size-6" />
-        <span className="font-bold">{siteConfig.name}</span>
+        <span className="font-semibold dark:font-bold">{siteConfig.name}</span>
       </Link>
       <nav className="flex items-center gap-4 text-sm lg:gap-6">
         {mainNavItems.map((item) => (

@@ -22,8 +22,8 @@ export default function HomePage() {
               <span className="block text-primary">anytime, anywhere</span>
             </h1>
             <p className="max-w-sm text-muted-foreground lg:max-w-md lg:text-xl">
-              Dive into a world of blockbusters, classics, and exclusive
-              originals with our premium service.
+              Watch a world of blockbusters, classics, and exclusive originals
+              with our premium service.
             </p>
           </div>
           <div className="space-y-2">
