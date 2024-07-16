@@ -1,6 +1,6 @@
 'use client';
 
-import { Icons } from '@/icons';
+import { Icons } from '@/components/Icons';
 import { cn } from '@/lib/utils';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import * as React from 'react';

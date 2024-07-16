@@ -1,5 +1,6 @@
 'use client';
 
+import { Icons } from './Icons';
 import { Button } from './ui/button';
 import {
   DropdownMenu,
@@ -7,7 +8,6 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu';
-import { Icons } from '@/icons';
 import { useTheme } from 'next-themes';
 
 export function ModeToggle() {

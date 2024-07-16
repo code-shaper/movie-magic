@@ -1,10 +1,10 @@
 'use client';
 
+import { Icons } from './Icons';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { mainNavItems } from '@/config/main-nav';
 import { siteConfig } from '@/config/site';
-import { Icons } from '@/icons';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import type { LinkProps } from 'next/link';

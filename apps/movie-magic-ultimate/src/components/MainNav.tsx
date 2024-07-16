@@ -1,8 +1,8 @@
 'use client';
 
+import { Icons } from './Icons';
 import { mainNavItems } from '@/config/main-nav';
 import { siteConfig } from '@/config/site';
-import { Icons } from '@/icons';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
