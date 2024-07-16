@@ -3,6 +3,7 @@ import {
   ChevronRight,
   Circle,
   Film,
+  Menu,
   Moon,
   SunMedium,
 } from 'lucide-react';
@@ -15,6 +16,7 @@ export const Icons = {
   chevronRight: ChevronRight,
   circle: Circle,
   film: Film,
+  menu: Menu,
   moon: Moon,
   sun: SunMedium,
 };
