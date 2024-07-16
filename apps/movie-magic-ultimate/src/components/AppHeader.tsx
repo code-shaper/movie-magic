@@ -17,7 +17,7 @@ export function AppHeader() {
         <nav className="flex flex-1 items-center justify-end gap-4">
           <ModeToggle />
           <Button asChild size="sm">
-            <Link href="/signin" prefetch={false}>
+            <Link href="/movies" prefetch={false}>
               Sign In
             </Link>
           </Button>

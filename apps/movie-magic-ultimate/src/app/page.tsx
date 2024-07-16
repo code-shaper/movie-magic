@@ -28,9 +28,9 @@ export default function HomePage() {
           </div>
           <div className="space-y-2">
             <p className="text-sm text-muted-foreground">New to Movie Magic?</p>
-            <Button asChild size="sm">
-              <Link href="/signup" prefetch={false}>
-                Sign Up
+            <Button asChild size="lg">
+              <Link href="/movies" prefetch={false}>
+                Get Started
               </Link>
             </Button>
           </div>
