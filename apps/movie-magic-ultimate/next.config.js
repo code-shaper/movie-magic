@@ -5,6 +5,16 @@ const nextConfig = {
     dirs: ['.'],
   },
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'm.media-amazon.com',
+        port: '',
+        pathname: '/images/**',
+      },
+    ],
+  },
   experimental: {
     /*
      * Disable client-side router cache

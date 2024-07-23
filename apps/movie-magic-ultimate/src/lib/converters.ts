@@ -27,7 +27,7 @@ const genreMap: Record<Genre, string> = {
   [Genre.Music]: 'Music',
   [Genre.Mystery]: 'Mystery',
   [Genre.Romance]: 'Romance',
-  [Genre.SciFi]: 'SciFi',
+  [Genre.SciFi]: 'Sci-Fi',
   [Genre.Sport]: 'Sport',
   [Genre.Thriller]: 'Thriller',
   [Genre.War]: 'War',

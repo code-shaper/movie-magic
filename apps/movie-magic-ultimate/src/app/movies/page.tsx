@@ -1,3 +1,4 @@
+import { Icons } from '@/components/Icons';
 import {
   Table,
   TableBody,
@@ -8,7 +9,8 @@ import {
 } from '@/components/ui/table';
 import { graphql } from '@/generated/gql';
 import { getClient } from '@/lib/apollo-client';
-import { convertCertificateRating } from '@/lib/converters';
+import { convertCertificateRating, convertGenre } from '@/lib/converters';
+import Image from 'next/image';
 import * as React from 'react';
 
 /*
@@ -31,6 +33,12 @@ const moviesPageDocument = graphql(/* GraphQL */ `
         name
         certificate {
           rating
+        }
+        genres
+        image {
+          url
+          width
+          height
         }
       }
     }
@@ -57,19 +65,50 @@ export default async function MoviesPage() {
    *   within the fixed-width table
    */
   return (
-    <div className="container relative mx-auto max-w-screen-xl px-8 py-4">
+    <div className="container relative mx-auto max-w-screen-xl p-4">
       <Table className="table-fixed">
         <TableHeader>
           <TableRow>
-            <TableHead>Name</TableHead>
-            <TableHead className="w-[80px] text-center">Cert</TableHead>
+            <TableHead className="w-[40px]" />
+            <TableHead>Title</TableHead>
+            <TableHead className="w-[80px] text-center">Rating</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {moviesResponse.movies.map((movie) => (
-            <TableRow key={movie.id}>
-              <TableCell className="truncate font-medium">
-                {movie.name}
+            <TableRow
+              className="border-none text-muted-foreground"
+              key={movie.id}
+            >
+              <TableCell>
+                {movie.image ? (
+                  <div className="relative flex size-10 shrink-0 overflow-hidden">
+                    <Image
+                      alt={movie.name}
+                      className="aspect-square size-full object-cover"
+                      height={movie.image.height}
+                      src={movie.image.url}
+                      width={movie.image.width}
+                    />
+                  </div>
+                ) : (
+                  <Icons.image className="size-10" />
+                )}
+              </TableCell>
+              <TableCell>
+                <p className="truncate text-base leading-5 text-accent-foreground">
+                  {movie.name}
+                </p>
+                <div className="flex items-center gap-x-1">
+                  {movie.genres.map((genre, index) => (
+                    <React.Fragment key={index}>
+                      <p>{convertGenre(genre)}</p>
+                      {index < movie.genres.length - 1 && (
+                        <Icons.dot className="size-4" />
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
               </TableCell>
               <TableCell className="text-center">
                 {convertCertificateRating(movie.certificate.rating)}
