@@ -9,6 +9,31 @@ module.exports = {
     'plugin:@dword-design/import-alias/recommended',
     'plugin:storybook/recommended',
   ],
+  overrides: [
+    {
+      files: ['*.tsx'],
+      processor: '@graphql-eslint/graphql',
+    },
+    {
+      files: ['*.graphql'],
+      extends: [
+        'plugin:@graphql-eslint/operations-all',
+        'plugin:@graphql-eslint/schema-all',
+      ],
+      parser: '@graphql-eslint/eslint-plugin',
+      parserOptions: {
+        operations: ['src/**/*.tsx'],
+        schema: './src/gql/*.graphql',
+      },
+      rules: {
+        '@graphql-eslint/executable-definitions': 'off',
+        '@graphql-eslint/no-one-place-fragments': 'off',
+        '@graphql-eslint/no-unused-fragments': 'off',
+        '@graphql-eslint/require-description': 'off',
+        '@graphql-eslint/require-nullable-result-in-root': 'off',
+      },
+    },
+  ],
   rules: {
     '@dword-design/import-alias/prefer-alias': [
       'error',

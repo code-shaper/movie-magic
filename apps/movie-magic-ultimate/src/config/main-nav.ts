@@ -5,6 +5,6 @@ export const mainNavItems = [
   },
   {
     title: 'Watchlist',
-    href: '/movies',
+    href: '/watchlist',
   },
 ];

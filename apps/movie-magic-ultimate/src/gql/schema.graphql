@@ -1,0 +1,188 @@
+# ---------- Queries ----------
+
+type Query {
+  movie(id: ID!): Movie
+  movies(input: MoviesRequest!): MoviesResponse!
+}
+
+# ---------- Mutations ----------
+
+type Mutation {
+  setFeaturedMovie(input: SetFeaturedMovieRequest!): SetFeaturedMovieResponse!
+}
+
+# ---------- MoviesRequest ----------
+
+input MoviesRequest {
+  filterSpec: MovieFilterSpec
+  sortSpec: MovieSortSpec
+  pageSpec: PageSpec
+}
+
+input MovieFilterSpec {
+  certs: [CertificateRating!]
+  featured: Boolean
+  genres: [Genre!]
+  search: String
+}
+
+enum MovieSortSpec {
+  RANK_ASC
+  RELEASE_YEAR_DESC
+}
+
+input PageSpec {
+  page: Int!
+  perPage: Int!
+}
+
+# ---------- MoviesResponse ----------
+
+type MoviesResponse {
+  movies: [Movie!]!
+  pageInfo: PaginationInfo!
+}
+
+type PaginationInfo {
+  # Total number of pages
+  totalPages: Int!
+
+  # Total number of items
+  totalItems: Int!
+
+  # Current page number
+  page: Int!
+
+  # Number of items per page
+  perPage: Int!
+
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean!
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean!
+}
+
+# ---------- SetFeaturedMovieRequest ----------
+
+input SetFeaturedMovieRequest {
+  movieId: ID!
+  isFeatured: Boolean!
+}
+
+# ---------- SetFeaturedMovieResponse ----------
+
+type SetFeaturedMovieResponse {
+  errors: [SetFeaturedMovieErrors!]
+  record: Movie
+  recordId: ID
+}
+
+union SetFeaturedMovieErrors = AccessRightError | InternalError | NotFoundError
+
+# ---------- Movie ----------
+
+type Movie {
+  id: ID!
+  name: String!
+  description: String!
+  cast: [CastMember!]!
+  certificate: Certificate!
+  directors: [Person!]!
+  genres: [Genre!]!
+  image: Image
+  isFeatured: Boolean!
+  rank: Int!
+  ratingsSummary: MovieRatingsSummary!
+  releaseYear: Int!
+  runtime: Int!
+  tagline: String
+  writers: [Person!]!
+}
+
+# ---------- CastMember ----------
+
+type CastMember {
+  person: Person!
+  characters: [String!]
+}
+
+# ---------- Certificate ----------
+
+enum CertificateRating {
+  G
+  PG
+  PG_13
+  R
+  NR
+}
+
+type Certificate {
+  rating: CertificateRating!
+  ratingReason: String
+}
+
+# ---------- Genre ----------
+
+enum Genre {
+  Action
+  Adventure
+  Animation
+  Biography
+  Comedy
+  Crime
+  Drama
+  Family
+  Fantasy
+  History
+  Horror
+  Music
+  Mystery
+  Romance
+  SciFi
+  Sport
+  Thriller
+  War
+  Western
+}
+
+# ---------- Image ----------
+
+type Image {
+  url: String!
+  width: Int!
+  height: Int!
+}
+
+# ---------- MovieRatingsSummary ----------
+
+type MovieRatingsSummary {
+  aggregateRating: Float!
+  voteCount: Int!
+}
+
+# ---------- Person ----------
+
+type Person {
+  id: ID!
+  name: String!
+  image: Image
+}
+
+# ----- Errors -----
+
+interface ErrorInterface {
+  message: String!
+}
+
+type AccessRightError implements ErrorInterface {
+  message: String!
+}
+
+type InternalError implements ErrorInterface {
+  message: String!
+}
+
+type NotFoundError implements ErrorInterface {
+  message: String!
+}
