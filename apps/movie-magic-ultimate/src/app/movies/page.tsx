@@ -7,7 +7,8 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { graphql } from '@/generated/gql';
-import { getClient } from '@/lib/ApolloClient';
+import { getClient } from '@/lib/apollo-client';
+import { convertCertificateRating } from '@/lib/converters';
 import * as React from 'react';
 
 /*
@@ -56,7 +57,9 @@ export default async function MoviesPage() {
           {moviesResponse.movies.map((movie) => (
             <TableRow key={movie.id}>
               <TableCell className="font-medium">{movie.name}</TableCell>
-              <TableCell>{movie.certificate.rating}</TableCell>
+              <TableCell>
+                {convertCertificateRating(movie.certificate.rating)}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
