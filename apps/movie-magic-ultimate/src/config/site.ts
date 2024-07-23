@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'Movie Magic',
   description: 'Unlimited movies, anytime, anywhere',
-  url: 'https://movie-magic-ultimate.vercel.app/',
+  url: 'https://movie-magic-ultimate.vercel.app',
   ogImage: {
     url: 'https://movie-magic-ultimate.vercel.app/og.png',
     alt: 'Movie Magic',
