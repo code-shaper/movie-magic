@@ -129,22 +129,20 @@ export default async function MoviesPage() {
   const { movies: moviesResponse } = data;
 
   return (
-    <div className="container relative mx-auto max-w-screen-lg p-4 sm:px-8">
-      <div className="relative w-full overflow-auto">
-        {moviesResponse.movies.map((movie) => (
-          <div
-            className="flex items-center gap-x-3 rounded-md py-2 text-sm text-muted-foreground hover:bg-muted/50"
-            key={movie.id}
-          >
-            <MovieRank movie={movie} />
-            <MovieImage movie={movie} />
-            <MovieTitle movie={movie} />
-            <MovieRating movie={movie} />
-            <MovieReleaseYear movie={movie} />
-            <MovieRuntime movie={movie} />
-          </div>
-        ))}
-      </div>
+    <div className="relative w-full overflow-auto">
+      {moviesResponse.movies.map((movie) => (
+        <div
+          className="flex items-center gap-x-3 rounded-md py-2 text-sm text-muted-foreground hover:bg-muted/50"
+          key={movie.id}
+        >
+          <MovieRank movie={movie} />
+          <MovieImage movie={movie} />
+          <MovieTitle movie={movie} />
+          <MovieRating movie={movie} />
+          <MovieReleaseYear movie={movie} />
+          <MovieRuntime movie={movie} />
+        </div>
+      ))}
     </div>
   );
 }

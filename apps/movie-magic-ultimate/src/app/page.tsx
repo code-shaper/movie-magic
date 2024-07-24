@@ -1,32 +1,46 @@
+import { Icons } from '@/components/Icons';
 import { Button } from '@/components/ui/button';
+import { siteConfig } from '@/config/site';
 import Image from 'next/image';
 import Link from 'next/link';
 
 /**
  * Home page has a responsive layout, with a breakpoint at 1024px (lg).
- * 1. Below this breakpoint:
- *    - The text is at the top and the image is at the bottom
- *    - The text is centered
- * 2. Above this breakpoint:
- *    - The text is on the left and the image is on the right
- *    - The Text is left-aligned.
+ * 1. Below this breakpoint, we have content on the top and image on the bottom:
+ *      [Content]
+ *      [ Image ]
+ * 2. Above this breakpoint, we have a content on the left and image on the right:
+ *      [Content] [ Image ]
  */
 export default function HomePage() {
   return (
-    <div className="container relative mx-auto max-w-screen-lg py-4">
-      <div className="grid text-center lg:grid-cols-2 lg:text-left">
-        <div className="flex flex-col items-center space-y-6 p-8 lg:items-start lg:justify-center">
-          <div className="space-y-3">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl/none xl:text-6xl/none">
-              <span className="block">Unlimited movies</span>
-              <span className="block text-primary">anytime, anywhere</span>
-            </h1>
-            <p className="max-w-sm text-muted-foreground lg:max-w-md lg:text-xl">
-              Watch a world of blockbusters, classics, and exclusive originals
-              with our premium service.
-            </p>
-          </div>
-          <div className="space-y-2">
+    <div className="mx-auto lg:grid lg:grid-cols-2">
+      <div className="mx-auto max-w-2xl px-6 lg:max-w-4xl lg:px-12">
+        <div className="flex items-center space-x-2 py-8">
+          <Icons.film className="size-6" />
+          <span className="text-xl font-medium dark:font-semibold">
+            {siteConfig.name}
+          </span>
+          <nav className="flex flex-1 items-center justify-end gap-4">
+            <Link
+              className="text-sm font-semibold leading-6"
+              href="/movies"
+              prefetch={false}
+            >
+              Sign In <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </nav>
+        </div>
+        <div className="pb-24 pt-6 sm:pb-32 lg:pb-12 lg:pt-28 xl:pt-44">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl">
+            <span className="block">Unlimited movies</span>
+            <span className="block text-primary">anytime, anywhere</span>
+          </h1>
+          <p className="mt-6 text-lg text-muted-foreground xl:text-xl">
+            Watch a world of blockbusters, classics, and exclusive originals
+            with our premium service.
+          </p>
+          <div className="mt-10 space-y-2">
             <p className="text-sm text-muted-foreground">New to Movie Magic?</p>
             <Button asChild size="lg">
               <Link href="/movies" prefetch={false}>
@@ -35,14 +49,14 @@ export default function HomePage() {
             </Button>
           </div>
         </div>
-        <Image
-          alt="Couple watching a movie in a home theater"
-          className="mx-auto aspect-square overflow-hidden object-cover sm:w-full lg:order-last"
-          height="1024"
-          src="/hero.jpg"
-          width="1024"
-        />
       </div>
+      <Image
+        alt="Couple watching a movie in a home theater"
+        className="aspect-[3/2] w-full object-cover lg:aspect-[2/3] "
+        height="1024"
+        src="/hero.jpg"
+        width="1024"
+      />
     </div>
   );
 }
