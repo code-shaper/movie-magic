@@ -107,7 +107,7 @@ function MovieRating({ movie }: MovieComponentProps) {
 
 function MovieReleaseYear({ movie }: MovieComponentProps) {
   return (
-    <div className="hidden w-12 shrink-0 text-right md:block">
+    <div className="hidden w-12 shrink-0 text-right sm:block">
       {movie.releaseYear}
     </div>
   );
@@ -115,7 +115,7 @@ function MovieReleaseYear({ movie }: MovieComponentProps) {
 
 function MovieRuntime({ movie }: MovieComponentProps) {
   return (
-    <div className="hidden w-12 shrink-0 text-right md:block">
+    <div className="hidden w-12 shrink-0 text-right sm:block">
       {formatDuration(movie.runtime)}
     </div>
   );
