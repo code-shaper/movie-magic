@@ -13,7 +13,7 @@ import Link from 'next/link';
  */
 export default function HomePage() {
   return (
-    <div className="container relative mx-auto max-w-screen-xl py-4">
+    <div className="container relative mx-auto max-w-screen-lg py-4">
       <div className="grid text-center lg:grid-cols-2 lg:text-left">
         <div className="flex flex-col items-center space-y-6 p-8 lg:items-start lg:justify-center">
           <div className="space-y-3">
