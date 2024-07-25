@@ -50,16 +50,18 @@ interface MovieComponentProps {
 
 function MovieRank({ movie }: MovieComponentProps) {
   return (
-    <div className="mr-2 w-8 shrink-0 text-right text-base">{movie.rank}</div>
+    <div className="mr-2 hidden w-8 shrink-0 text-right text-base sm:block">
+      {movie.rank}
+    </div>
   );
 }
 
 function MovieImage({ movie }: MovieComponentProps) {
   return movie.image ? (
-    <div className="relative flex size-10 shrink-0 overflow-hidden rounded-md">
+    <div className="relative flex h-24 w-16 shrink-0 overflow-hidden rounded-md">
       <Image
         alt={movie.name}
-        className="aspect-square size-full object-cover"
+        className="aspect-[2/3] w-full object-cover"
         height={movie.image.height}
         src={movie.image.url}
         width={movie.image.width}
@@ -74,9 +76,8 @@ function MovieTitle({ movie }: MovieComponentProps) {
   /*
    * The following styles are necessary to prevent the title from expanding
    * to its content size. Without these, the `truncate` is ineffective.
-   *
-   * min-w-0: allow the flex item to shrink below content size
-   * overflow-hidden: Ensure content doesn't overflow
+   *   1. min-w-0: allow the flex item to shrink below content size
+   *   2. overflow-hidden: Ensure content doesn't overflow
    */
   return (
     <div className="mr-6 min-w-0 flex-1 overflow-hidden">
@@ -132,7 +133,7 @@ export default async function MoviesPage() {
     <div className="relative w-full overflow-auto">
       {moviesResponse.movies.map((movie) => (
         <div
-          className="flex items-center gap-x-3 rounded-md py-2 text-sm text-muted-foreground hover:bg-muted/50"
+          className="flex items-center gap-x-3 rounded-md p-2 text-sm text-muted-foreground hover:bg-muted/50"
           key={movie.id}
         >
           <MovieRank movie={movie} />

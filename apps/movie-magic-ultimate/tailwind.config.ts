@@ -54,6 +54,14 @@ const config = {
         sans: ['var(--font-inter)'],
         mono: ['var(--font-roboto-mono)'],
       },
+      screens: {
+        /*
+         * Override large screen breakpoint from 1024px to 1050px.
+         * This is to prevent the text wrapping of "anytime, anywhere"
+         * in the home page hero section at this breakpoint.
+         */
+        lg: '1050px',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
