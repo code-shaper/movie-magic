@@ -5,8 +5,8 @@ export const siteConfig = {
   ogImage: {
     url: 'https://movie-magic-ultimate.vercel.app/og.png',
     alt: 'Movie Magic',
-    width: 1280,
-    height: 698,
+    width: 1200,
+    height: 630,
   },
   links: {
     twitter: 'https://twitter.com/code_shaper',
