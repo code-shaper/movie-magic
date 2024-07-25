@@ -48,6 +48,20 @@ interface MovieComponentProps {
   movie: Movie;
 }
 
+function Header() {
+  return (
+    <header className="sticky top-14 z-50 hidden w-full border-b bg-background sm:block">
+      <div className="flex items-center gap-x-3 rounded-md px-2 py-3 text-sm leading-none text-muted-foreground">
+        <div className="mr-2 hidden w-8 shrink-0 text-right sm:block">#</div>
+        <div className="w-16 flex-1 shrink-0 ">Title</div>
+        <div className="hidden w-12 shrink-0 text-center sm:block">Rating</div>
+        <div className="hidden w-12 shrink-0 text-right sm:block">Year</div>
+        <div className="hidden w-12 shrink-0 text-right sm:block">Runtime</div>
+      </div>
+    </header>
+  );
+}
+
 function MovieRank({ movie }: MovieComponentProps) {
   return (
     <div className="mr-2 hidden w-8 shrink-0 text-right text-base sm:block">
@@ -81,7 +95,7 @@ function MovieTitle({ movie }: MovieComponentProps) {
    */
   return (
     <div className="mr-6 min-w-0 flex-1 overflow-hidden">
-      <p className="truncate text-base leading-5 text-accent-foreground">
+      <p className="line-clamp-2 text-base leading-5 text-accent-foreground">
         {movie.name}
       </p>
       <div className="flex items-center gap-x-1">
@@ -130,20 +144,23 @@ export default async function MoviesPage() {
   const { movies: moviesResponse } = data;
 
   return (
-    <div className="relative w-full overflow-auto">
-      {moviesResponse.movies.map((movie) => (
-        <div
-          className="flex items-center gap-x-3 rounded-md p-2 text-sm text-muted-foreground hover:bg-muted/50"
-          key={movie.id}
-        >
-          <MovieRank movie={movie} />
-          <MovieImage movie={movie} />
-          <MovieTitle movie={movie} />
-          <MovieRating movie={movie} />
-          <MovieReleaseYear movie={movie} />
-          <MovieRuntime movie={movie} />
-        </div>
-      ))}
-    </div>
+    <>
+      <Header />
+      <div className="relative w-full overflow-auto py-2">
+        {moviesResponse.movies.map((movie) => (
+          <div
+            className="flex items-center gap-x-3 rounded-md p-2 text-sm text-muted-foreground hover:bg-muted/50"
+            key={movie.id}
+          >
+            <MovieRank movie={movie} />
+            <MovieImage movie={movie} />
+            <MovieTitle movie={movie} />
+            <MovieRating movie={movie} />
+            <MovieReleaseYear movie={movie} />
+            <MovieRuntime movie={movie} />
+          </div>
+        ))}
+      </div>
+    </>
   );
 }

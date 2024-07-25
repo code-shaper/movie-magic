@@ -4,13 +4,9 @@ import { ModeToggle } from './ModeToggle';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 import Link from 'next/link';
 
-/**
- * <header> has `border-border/40` – this specifies its color, but it's width is
- * not specified. Hence border is not actually drawn.
- */
 export function AppHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full bg-background">
       <div className="container flex h-14 max-w-screen-lg items-center px-4 sm:px-8">
         <MainNav />
         <MobileNav />
