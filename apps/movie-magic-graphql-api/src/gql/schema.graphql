@@ -28,6 +28,8 @@ input MovieFilterSpec {
 
 enum MovieSortSpec {
   RANK_ASC
+  RANK_DESC
+  RELEASE_YEAR_ASC
   RELEASE_YEAR_DESC
 }
 

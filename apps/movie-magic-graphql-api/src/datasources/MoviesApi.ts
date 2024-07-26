@@ -85,11 +85,21 @@ export class MoviesApi {
     }
 
     // ----- sort -----
-    if (sortSpec) {
+    if (sortSpec !== null && sortSpec !== undefined) {
       switch (sortSpec) {
         case MovieSortSpec.RankAsc:
           moviesResult = moviesResult.sort(
             (movie1, movie2) => movie1.rank - movie2.rank
+          );
+          break;
+        case MovieSortSpec.RankDesc:
+          moviesResult = moviesResult.sort(
+            (movie1, movie2) => movie2.rank - movie1.rank
+          );
+          break;
+        case MovieSortSpec.ReleaseYearAsc:
+          moviesResult = moviesResult.sort(
+            (movie1, movie2) => movie1.releaseYear - movie2.releaseYear
           );
           break;
         case MovieSortSpec.ReleaseYearDesc:
