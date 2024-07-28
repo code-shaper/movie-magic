@@ -35,10 +35,10 @@ const genreMap: Record<Genre, string> = {
 };
 
 const movieSortSpecMap: Record<MovieSortSpec, string> = {
-  [MovieSortSpec.RankAsc]: 'Rank Ascending',
-  [MovieSortSpec.RankDesc]: 'Rank Descending',
-  [MovieSortSpec.ReleaseYearAsc]: 'Year Ascending',
-  [MovieSortSpec.ReleaseYearDesc]: 'Year Descending',
+  [MovieSortSpec.RankAsc]: 'Rank ascending',
+  [MovieSortSpec.RankDesc]: 'Rank descending',
+  [MovieSortSpec.ReleaseYearAsc]: 'Year ascending',
+  [MovieSortSpec.ReleaseYearDesc]: 'Year descending',
 };
 
 export const convertCertificateRating = (rating: CertificateRating) =>
