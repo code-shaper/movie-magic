@@ -28,7 +28,7 @@ function Header() {
 
 function Content() {
   return (
-    <div className="pb-24 pt-6 sm:pb-32 lg:py-28">
+    <div className="pb-24 pt-6 sm:pb-32 lg:flex-1 lg:pb-0 lg:pt-28">
       <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl">
         <span className="block">Unlimited movies</span>
         <span className="block text-primary">anytime, anywhere</span>
@@ -49,52 +49,47 @@ function Content() {
   );
 }
 
-function Copyright() {
-  return (
-    <p className="text-sm text-muted-foreground">
-      &copy; {new Date().getFullYear()} Movie Magic
-    </p>
-  );
-}
-
-function FooterNav() {
-  return (
-    <nav className="flex gap-1">
-      {footerItems.map((item) => (
-        <Link href={item.href} key={item.name} rel="noreferrer" target="_blank">
-          <div
-            className={cn(
-              buttonVariants({
-                variant: 'ghost',
-              }),
-              'h-8 w-8 px-0'
-            )}
-          >
-            <item.icon className="size-4 text-muted-foreground" />
-            <span className="sr-only">{item.name}</span>
-          </div>
-        </Link>
-      ))}
-    </nav>
-  );
-}
-
 function Footer() {
   return (
-    <>
-      <footer className="mx-auto flex max-w-2xl items-center justify-between p-6 lg:hidden">
-        <Copyright />
-        <FooterNav />
-      </footer>
-      <div className="lg: hidden py-6 lg:grid lg:grid-cols-2">
-        <div className="mx-auto w-full max-w-4xl px-12">
-          <Copyright />
-        </div>
-        <div className="flex justify-end px-12">
-          <FooterNav />
-        </div>
-      </div>
-    </>
+    <footer className="flex items-center justify-between py-3 lg:py-2">
+      <p className="text-sm text-muted-foreground">
+        &copy; {new Date().getFullYear()} Movie Magic
+      </p>
+      <nav className="flex gap-1">
+        {footerItems.map((item) => (
+          <Link
+            href={item.href}
+            key={item.name}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <div
+              className={cn(
+                buttonVariants({
+                  variant: 'ghost',
+                }),
+                'h-8 w-8 px-0'
+              )}
+            >
+              <item.icon className="size-4 text-muted-foreground" />
+              <span className="sr-only">{item.name}</span>
+            </div>
+          </Link>
+        ))}
+      </nav>
+    </footer>
+  );
+}
+
+function HeroImage() {
+  return (
+    <Image
+      alt="Couple watching a movie in a home theater"
+      className="aspect-[3/2] w-full object-cover lg:h-screen lg:max-h-[1024px]"
+      height="1024"
+      src="/hero.jpg"
+      width="1024"
+    />
   );
 }
 
@@ -111,20 +106,27 @@ function Footer() {
 export default function HomePage() {
   return (
     <>
-      <div className="lg:grid lg:grid-cols-2">
-        <div className="mx-auto max-w-2xl px-6 lg:max-w-4xl lg:px-12">
+      {/* Vertical Layout < lg */}
+      <div className="lg:hidden">
+        <div className="mx-auto max-w-2xl px-6">
           <Header />
           <Content />
         </div>
-        <Image
-          alt="Couple watching a movie in a home theater"
-          className="aspect-[3/2] w-full object-cover lg:aspect-[2/3] lg:h-[640px]"
-          height="1024"
-          src="/hero.jpg"
-          width="1024"
-        />
+        <HeroImage />
+        <div className="mx-auto max-w-2xl px-6">
+          <Footer />
+        </div>
       </div>
-      <Footer />
+
+      {/* Horizontal Layout @ lg */}
+      <div className="hidden lg:grid lg:grid-cols-2">
+        <div className="mx-auto flex h-screen max-h-[1024px] max-w-4xl flex-col px-12">
+          <Header />
+          <Content />
+          <Footer />
+        </div>
+        <HeroImage />
+      </div>
     </>
   );
 }
