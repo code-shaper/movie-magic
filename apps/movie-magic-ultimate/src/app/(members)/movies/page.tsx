@@ -161,7 +161,7 @@ export default async function MoviesPage({ searchParams }: MoviesPageProps) {
 
   return (
     <>
-      <Toolbar toolbarInfo={pageInfo} />
+      <Toolbar moviesRequest={moviesRequest} toolbarInfo={pageInfo} />
       <MovieListHeader />
       <div className="relative w-full overflow-auto py-2">
         {movies.map((movie) => (

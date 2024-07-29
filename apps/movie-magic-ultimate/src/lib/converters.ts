@@ -124,8 +124,8 @@ export function parseGenres(input: string[] | string | undefined) {
 const movieSortSpecToString: Record<MovieSortSpec, string> = {
   [MovieSortSpec.RankAsc]: 'Rank ascending',
   [MovieSortSpec.RankDesc]: 'Rank descending',
-  [MovieSortSpec.ReleaseYearAsc]: 'Year ascending',
-  [MovieSortSpec.ReleaseYearDesc]: 'Year descending',
+  [MovieSortSpec.ReleaseYearAsc]: 'Release year ascending',
+  [MovieSortSpec.ReleaseYearDesc]: 'Release year descending',
 };
 
 const movieSortSpecFromString: Record<string, MovieSortSpec> = {

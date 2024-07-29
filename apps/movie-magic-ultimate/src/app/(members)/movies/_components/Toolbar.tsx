@@ -15,6 +15,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Toggle } from '@/components/ui/toggle';
 import type { FragmentType } from '@/generated/gql';
 import { graphql, getFragmentData } from '@/generated/gql';
+import type { MoviesRequest } from '@/generated/gql/graphql';
 import {
   CertificateRating,
   Genre,
@@ -42,17 +43,17 @@ const ToolbarInfoFragment = graphql(/* GraphQL */ `
   }
 `);
 
-function Search() {
-  return <Input placeholder="Search" />;
+function Search({ moviesRequest }: { moviesRequest: MoviesRequest }) {
+  const searchString = moviesRequest.filterSpec?.search ?? '';
+
+  return <Input placeholder="Search" value={searchString} />;
 }
 
-function GenreFilter() {
-  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+function GenreFilter({ moviesRequest }: { moviesRequest: MoviesRequest }) {
+  const selectedGenres = moviesRequest.filterSpec?.genres ?? [];
 
   function toggleGenre(genre: string) {
-    setSelectedGenres((prev) =>
-      prev.includes(genre) ? prev.filter((g) => g !== genre) : [...prev, genre]
-    );
+    console.log('toggleGenre', genre);
   }
 
   return (
@@ -79,15 +80,11 @@ function GenreFilter() {
   );
 }
 
-function RatingFilter() {
-  const [selectedRatings, setSelectedRatings] = useState<string[]>([]);
+function RatingFilter({ moviesRequest }: { moviesRequest: MoviesRequest }) {
+  const selectedRatings = moviesRequest.filterSpec?.certs ?? [];
 
   function toggleRating(rating: string) {
-    setSelectedRatings((prev) =>
-      prev.includes(rating)
-        ? prev.filter((r) => r !== rating)
-        : [...prev, rating]
-    );
+    console.log('toggleRating', rating);
   }
 
   return (
@@ -114,14 +111,18 @@ function RatingFilter() {
   );
 }
 
-function SortSelector() {
-  const [selectedSort, setSelectedSort] = useState<string>(sortValues[0]);
+function SortSelector({ moviesRequest }: { moviesRequest: MoviesRequest }) {
+  const selectedSort = moviesRequest.sortSpec ?? MovieSortSpec.RankAsc;
+
+  const setSelectedSort = (sort: MovieSortSpec) => {
+    console.log('setSelectedSort', sort);
+  };
 
   return (
     <div className="space-y-4">
       <h2 className="text-sm font-medium">Sort By</h2>
       <Select onValueChange={setSelectedSort} value={selectedSort}>
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="w-[220px]">
           <SelectValue placeholder="Select a sort field" />
         </SelectTrigger>
         <SelectContent>
@@ -137,10 +138,14 @@ function SortSelector() {
 }
 
 export interface ToolbarProps {
+  moviesRequest: MoviesRequest;
   toolbarInfo: FragmentType<typeof ToolbarInfoFragment>;
 }
 
-export function Toolbar({ toolbarInfo: toolbarInfoProp }: ToolbarProps) {
+export function Toolbar({
+  moviesRequest,
+  toolbarInfo: toolbarInfoProp,
+}: ToolbarProps) {
   const [open, setOpen] = useState(false);
   const toolbarInfo = getFragmentData(ToolbarInfoFragment, toolbarInfoProp);
 
@@ -161,10 +166,10 @@ export function Toolbar({ toolbarInfo: toolbarInfoProp }: ToolbarProps) {
               </Button>
             </div>
             <div className="space-y-8">
-              <Search />
-              <GenreFilter />
-              <RatingFilter />
-              <SortSelector />
+              <Search moviesRequest={moviesRequest} />
+              <GenreFilter moviesRequest={moviesRequest} />
+              <RatingFilter moviesRequest={moviesRequest} />
+              <SortSelector moviesRequest={moviesRequest} />
             </div>
           </SheetContent>
           <Badge variant="secondary">{toolbarInfo.totalItems}</Badge>
