@@ -3,6 +3,7 @@ import {
   Genre,
   MovieSortSpec,
 } from '@/generated/gql/graphql';
+import type { MoviesRequest } from '@/generated/gql/graphql';
 
 // ----- CertificateRating -----
 
@@ -30,6 +31,22 @@ export function parseCertificateRating(input: string | undefined) {
   return input !== undefined
     ? certificateRatingFromString[input.toUpperCase()]
     : undefined;
+}
+
+export function parseCertificateRatings(input: string[] | string | undefined) {
+  const ratings: CertificateRating[] = [];
+
+  if (input !== undefined) {
+    const inputArray = Array.isArray(input) ? input : [input];
+    for (const rating of inputArray) {
+      const parsedRating = parseCertificateRating(rating);
+      if (parsedRating !== undefined) {
+        ratings.push(parsedRating);
+      }
+    }
+  }
+
+  return ratings;
 }
 
 // ----- Genre -----
@@ -86,6 +103,22 @@ export function parseGenre(input: string | undefined) {
   return input !== undefined ? genreFromString[input.toUpperCase()] : undefined;
 }
 
+export function parseGenres(input: string[] | string | undefined) {
+  const genres: Genre[] = [];
+
+  if (input !== undefined) {
+    const inputArray = Array.isArray(input) ? input : [input];
+    for (const genre of inputArray) {
+      const parsedGenre = parseGenre(genre);
+      if (parsedGenre !== undefined) {
+        genres.push(parsedGenre);
+      }
+    }
+  }
+
+  return genres;
+}
+
 // ----- MovieSortSpec -----
 
 const movieSortSpecToString: Record<MovieSortSpec, string> = {
@@ -110,4 +143,32 @@ export function parseMovieSortSpec(input: string | undefined) {
   return input !== undefined
     ? movieSortSpecFromString[input.toUpperCase()]
     : undefined;
+}
+
+// ----- SearchParams -----
+
+/**
+ * SearchParams example:
+ *   /movies?search=the&genre=SCI_FI&rating=R&sort=RELEASE_YEAR_DESC
+ */
+export interface SearchParams {
+  search?: string;
+  genre?: string[] | string;
+  rating?: string[] | string;
+  sort?: string;
+}
+
+export function parseSearchParams(searchParams: SearchParams) {
+  const { search, genre, rating, sort } = searchParams;
+
+  const moviesRequest: MoviesRequest = {
+    filterSpec: {
+      search,
+      genres: parseGenres(genre),
+      certs: parseCertificateRatings(rating),
+    },
+    sortSpec: parseMovieSortSpec(sort),
+  };
+
+  return moviesRequest;
 }

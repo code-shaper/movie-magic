@@ -1,12 +1,12 @@
 import { Toolbar } from './_components/Toolbar';
 import { Icons } from '@/components/Icons';
 import { graphql } from '@/generated/gql';
-import type { MoviesRequest } from '@/generated/gql/graphql';
 import { getClient } from '@/lib/apollo-client';
+import type { SearchParams } from '@/lib/converters';
 import {
   formatCertificateRating,
   formatGenre,
-  parseMovieSortSpec,
+  parseSearchParams,
 } from '@/lib/converters';
 import { formatDuration } from '@/lib/utils';
 import type { ResultOf } from '@graphql-typed-document-node/core';
@@ -146,29 +146,12 @@ function MovieRuntime({ movie }: MovieComponentProps) {
   );
 }
 
-interface SearchParams {
-  cert?: string[] | string;
-  genres?: string[] | string;
-  search?: string;
-  sort?: string;
-}
-
 interface MoviesPageProps {
   searchParams: SearchParams;
 }
 
 export default async function MoviesPage({ searchParams }: MoviesPageProps) {
-  console.log('---> searchParams', searchParams);
-  const moviesRequest: MoviesRequest = {
-    filterSpec: {
-      certs: [],
-      genres: [],
-      search: searchParams.search,
-    },
-    sortSpec: parseMovieSortSpec(searchParams.sort),
-  };
-  console.log('---> moviesRequest', moviesRequest);
-
+  const moviesRequest = parseSearchParams(searchParams);
   const { data } = await getClient().query({
     query: moviesPageDocument,
     variables: { input: moviesRequest },
