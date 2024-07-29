@@ -19,9 +19,9 @@ import {
   MovieSortSpec,
 } from '@/generated/gql/graphql';
 import {
-  convertCertificateRating,
-  convertGenre,
-  convertMovieSortSpec,
+  formatCertificateRating,
+  formatGenre,
+  formatMovieSortSpec,
 } from '@/lib/converters';
 import { useState } from 'react';
 
@@ -48,7 +48,7 @@ function GenreFilter() {
       <div className="flex flex-wrap gap-2">
         {genreValues.map((genre) => (
           <Toggle
-            aria-label={convertGenre(genre)}
+            aria-label={formatGenre(genre)}
             className="w-20"
             key={genre}
             onPressedChange={() => {
@@ -58,7 +58,7 @@ function GenreFilter() {
             size="sm"
             variant="outline"
           >
-            {convertGenre(genre)}
+            {formatGenre(genre)}
           </Toggle>
         ))}
       </div>
@@ -83,7 +83,7 @@ function RatingFilter() {
       <div className="flex flex-wrap gap-2">
         {ratingValues.map((rating) => (
           <Toggle
-            aria-label={convertCertificateRating(rating)}
+            aria-label={formatCertificateRating(rating)}
             className="w-20"
             key={rating}
             onPressedChange={() => {
@@ -93,7 +93,7 @@ function RatingFilter() {
             size="sm"
             variant="outline"
           >
-            {convertCertificateRating(rating)}
+            {formatCertificateRating(rating)}
           </Toggle>
         ))}
       </div>
@@ -114,7 +114,7 @@ function SortSelector() {
         <SelectContent>
           {sortValues.map((sortValue) => (
             <SelectItem key={sortValue} value={sortValue}>
-              {convertMovieSortSpec(sortValue)}
+              {formatMovieSortSpec(sortValue)}
             </SelectItem>
           ))}
         </SelectContent>

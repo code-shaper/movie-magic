@@ -1,8 +1,13 @@
 import { Toolbar } from './_components/Toolbar';
 import { Icons } from '@/components/Icons';
 import { graphql } from '@/generated/gql';
+import type { MoviesRequest } from '@/generated/gql/graphql';
 import { getClient } from '@/lib/apollo-client';
-import { convertCertificateRating, convertGenre } from '@/lib/converters';
+import {
+  formatCertificateRating,
+  formatGenre,
+  parseMovieSortSpec,
+} from '@/lib/converters';
 import { formatDuration } from '@/lib/utils';
 import type { ResultOf } from '@graphql-typed-document-node/core';
 import Image from 'next/image';
@@ -49,7 +54,7 @@ interface MovieComponentProps {
   movie: Movie;
 }
 
-function Header() {
+function MovieListHeader() {
   return (
     <header className="sticky top-14 z-50 hidden w-full border-b bg-background sm:top-28 sm:block">
       <div className="flex items-center gap-x-3 px-2 py-3 text-sm leading-none text-muted-foreground">
@@ -102,7 +107,7 @@ function MovieTitle({ movie }: MovieComponentProps) {
       <div className="flex items-center gap-x-1">
         {movie.genres.map((genre, index) => (
           <React.Fragment key={index}>
-            <p>{convertGenre(genre)}</p>
+            <p>{formatGenre(genre)}</p>
             {index < movie.genres.length - 1 && (
               <Icons.dot className="size-4" />
             )}
@@ -116,7 +121,7 @@ function MovieTitle({ movie }: MovieComponentProps) {
 function MovieRating({ movie }: MovieComponentProps) {
   return (
     <div className="hidden w-12 shrink-0 text-center sm:block">
-      {convertCertificateRating(movie.certificate.rating)}
+      {formatCertificateRating(movie.certificate.rating)}
     </div>
   );
 }
@@ -137,17 +142,39 @@ function MovieRuntime({ movie }: MovieComponentProps) {
   );
 }
 
-export default async function MoviesPage() {
+interface SearchParams {
+  cert?: string[] | string;
+  genres?: string[] | string;
+  q?: string;
+  sort?: string;
+}
+
+interface MoviesPageProps {
+  searchParams: SearchParams;
+}
+
+export default async function MoviesPage({ searchParams }: MoviesPageProps) {
+  console.log('---> searchParams', searchParams);
+  const moviesRequest: MoviesRequest = {
+    filterSpec: {
+      certs: [],
+      genres: [],
+      search: undefined,
+    },
+    sortSpec: parseMovieSortSpec(searchParams.sort),
+  };
+  console.log('---> moviesRequest', moviesRequest);
+
   const { data } = await getClient().query({
     query: moviesPageDocument,
-    variables: { input: {} },
+    variables: { input: moviesRequest },
   });
   const { movies: moviesResponse } = data;
 
   return (
     <>
       <Toolbar />
-      <Header />
+      <MovieListHeader />
       <div className="relative w-full overflow-auto py-2">
         {moviesResponse.movies.map((movie) => (
           <div

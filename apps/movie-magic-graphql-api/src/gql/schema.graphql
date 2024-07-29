@@ -127,25 +127,25 @@ type Certificate {
 # ---------- Genre ----------
 
 enum Genre {
-  Action
-  Adventure
-  Animation
-  Biography
-  Comedy
-  Crime
-  Drama
-  Family
-  Fantasy
-  History
-  Horror
-  Music
-  Mystery
-  Romance
-  SciFi
-  Sport
-  Thriller
-  War
-  Western
+  ACTION
+  ADVENTURE
+  ANIMATION
+  BIOGRAPHY
+  COMEDY
+  CRIME
+  DRAMA
+  FAMILY
+  FANTASY
+  HISTORY
+  HORROR
+  MUSIC
+  MYSTERY
+  ROMANCE
+  SCI_FI
+  SPORT
+  THRILLER
+  WAR
+  WESTERN
 }
 
 # ---------- Image ----------

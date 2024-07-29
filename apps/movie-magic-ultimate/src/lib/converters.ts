@@ -4,7 +4,9 @@ import {
   MovieSortSpec,
 } from '@/generated/gql/graphql';
 
-const certificateRatingMap: Record<CertificateRating, string> = {
+// ----- CertificateRating -----
+
+const certificateRatingToString: Record<CertificateRating, string> = {
   [CertificateRating.G]: 'G',
   [CertificateRating.Nr]: 'NR',
   [CertificateRating.Pg]: 'PG',
@@ -12,7 +14,27 @@ const certificateRatingMap: Record<CertificateRating, string> = {
   [CertificateRating.R]: 'R',
 };
 
-const genreMap: Record<Genre, string> = {
+const certificateRatingFromString: Record<string, CertificateRating> = {
+  G: CertificateRating.G,
+  NR: CertificateRating.Nr,
+  PG: CertificateRating.Pg,
+  'PG-13': CertificateRating.Pg_13,
+  R: CertificateRating.R,
+};
+
+export function formatCertificateRating(rating: CertificateRating) {
+  return certificateRatingToString[rating];
+}
+
+export function parseCertificateRating(input: string | undefined) {
+  return input !== undefined
+    ? certificateRatingFromString[input.toUpperCase()]
+    : undefined;
+}
+
+// ----- Genre -----
+
+const genreToString: Record<Genre, string> = {
   [Genre.Action]: 'Action',
   [Genre.Adventure]: 'Adventure',
   [Genre.Animation]: 'Animation',
@@ -34,17 +56,58 @@ const genreMap: Record<Genre, string> = {
   [Genre.Western]: 'Western',
 };
 
-const movieSortSpecMap: Record<MovieSortSpec, string> = {
+const genreFromString: Record<string, Genre> = {
+  ACTION: Genre.Action,
+  ADVENTURE: Genre.Adventure,
+  ANIMATION: Genre.Animation,
+  BIOGRAPHY: Genre.Biography,
+  COMEDY: Genre.Comedy,
+  CRIME: Genre.Crime,
+  DRAMA: Genre.Drama,
+  FAMILY: Genre.Family,
+  FANTASY: Genre.Fantasy,
+  HISTORY: Genre.History,
+  HORROR: Genre.Horror,
+  MUSIC: Genre.Music,
+  MYSTERY: Genre.Mystery,
+  ROMANCE: Genre.Romance,
+  SCI_FI: Genre.SciFi,
+  SPORT: Genre.Sport,
+  THRILLER: Genre.Thriller,
+  WAR: Genre.War,
+  WESTERN: Genre.Western,
+};
+
+export function formatGenre(genre: Genre) {
+  return genreToString[genre];
+}
+
+export function parseGenre(input: string | undefined) {
+  return input !== undefined ? genreFromString[input.toUpperCase()] : undefined;
+}
+
+// ----- MovieSortSpec -----
+
+const movieSortSpecToString: Record<MovieSortSpec, string> = {
   [MovieSortSpec.RankAsc]: 'Rank ascending',
   [MovieSortSpec.RankDesc]: 'Rank descending',
   [MovieSortSpec.ReleaseYearAsc]: 'Year ascending',
   [MovieSortSpec.ReleaseYearDesc]: 'Year descending',
 };
 
-export const convertCertificateRating = (rating: CertificateRating) =>
-  certificateRatingMap[rating];
+const movieSortSpecFromString: Record<string, MovieSortSpec> = {
+  RANK_ASC: MovieSortSpec.RankAsc,
+  RANK_DESC: MovieSortSpec.RankDesc,
+  YEAR_ASC: MovieSortSpec.ReleaseYearAsc,
+  YEAR_DESC: MovieSortSpec.ReleaseYearDesc,
+};
 
-export const convertGenre = (genre: Genre) => genreMap[genre];
+export function formatMovieSortSpec(sortSpec: MovieSortSpec) {
+  return movieSortSpecToString[sortSpec];
+}
 
-export const convertMovieSortSpec = (sortSpec: MovieSortSpec) =>
-  movieSortSpecMap[sortSpec];
+export function parseMovieSortSpec(input: string | undefined) {
+  return input !== undefined
+    ? movieSortSpecFromString[input.toUpperCase()]
+    : undefined;
+}

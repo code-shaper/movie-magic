@@ -18,7 +18,7 @@
       "ratingReason": "Rated R for language and prison violence"
     },
     "directorIds": ["nm0001104"],
-    "genres": ["Drama"],
+    "genres": ["DRAMA"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg",
       "width": 1200,
@@ -53,7 +53,7 @@
       "rating": "R"
     },
     "directorIds": ["nm0000338"],
-    "genres": ["Crime", "Drama"],
+    "genres": ["CRIME", "DRAMA"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
       "width": 1396,
@@ -89,7 +89,7 @@
       "ratingReason": "Rated PG-13 for intense sequences of violence and some menace"
     },
     "directorIds": ["nm0634240"],
-    "genres": ["Action", "Crime", "Drama"],
+    "genres": ["ACTION", "CRIME", "DRAMA"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
       "width": 1383,
@@ -124,7 +124,7 @@
       "rating": "R"
     },
     "directorIds": ["nm0000338"],
-    "genres": ["Crime", "Drama"],
+    "genres": ["CRIME", "DRAMA"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
       "width": 1791,
@@ -159,7 +159,7 @@
       "rating": "NR"
     },
     "directorIds": ["nm0001486"],
-    "genres": ["Crime", "Drama"],
+    "genres": ["CRIME", "DRAMA"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_.jpg",
       "width": 974,
@@ -195,7 +195,7 @@
       "ratingReason": "Rated R for language, some sexuality and actuality violence"
     },
     "directorIds": ["nm0000229"],
-    "genres": ["Biography", "Drama", "History"],
+    "genres": ["BIOGRAPHY", "DRAMA", "HISTORY"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
       "width": 1600,
@@ -231,7 +231,7 @@
       "ratingReason": "Rated PG-13 for intense epic battle sequences and frightening images"
     },
     "directorIds": ["nm0001392"],
-    "genres": ["Action", "Adventure", "Drama"],
+    "genres": ["ACTION", "ADVENTURE", "DRAMA"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
       "width": 800,
@@ -267,7 +267,7 @@
       "ratingReason": "Rated R for strong graphic violence and drug use, pervasive strong language and some sexuality"
     },
     "directorIds": ["nm0000233"],
-    "genres": ["Crime", "Drama"],
+    "genres": ["CRIME", "DRAMA"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
       "width": 1055,
@@ -303,7 +303,7 @@
       "ratingReason": "Rated PG-13 for epic battle sequences and some scary images"
     },
     "directorIds": ["nm0001392"],
-    "genres": ["Action", "Adventure", "Drama"],
+    "genres": ["ACTION", "ADVENTURE", "DRAMA"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg",
       "width": 1978,
@@ -338,7 +338,7 @@
       "rating": "R"
     },
     "directorIds": ["nm0001466"],
-    "genres": ["Adventure", "Western"],
+    "genres": ["ADVENTURE", "WESTERN"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BNjJlYmNkZGItM2NhYy00MjlmLTk5NmQtNjg1NmM2ODU4OTMwXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg",
       "width": 2001,
@@ -374,7 +374,7 @@
       "ratingReason": "Rated PG-13 for sequences of strong violence, some suggestive material and brief strong language."
     },
     "directorIds": ["nm0898288"],
-    "genres": ["Action", "Adventure", "Drama"],
+    "genres": ["ACTION", "ADVENTURE", "DRAMA"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BODI0YjNhNjUtYjM0My00MTUwLWFlYTMtMWI2NGUzYjNjNGQzXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
       "width": 2764,
@@ -410,7 +410,7 @@
       "ratingReason": "Rated PG for sequences of animated action violence, some language and thematic elements"
     },
     "directorIds": ["nm1690966", "nm5358492", "nm1042511"],
-    "genres": ["Animation", "Action", "Adventure"],
+    "genres": ["ANIMATION", "ACTION", "ADVENTURE"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BMzI0NmVkMjEtYmY4MS00ZDMxLTlkZmEtMzU4MDQxYTMzMjU2XkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_.jpg",
       "width": 1299,
@@ -445,7 +445,7 @@
       "ratingReason": "Rated R for some sexuality, nudity and language"
     },
     "directorIds": ["nm0634240"],
-    "genres": ["Biography", "Drama", "History"],
+    "genres": ["BIOGRAPHY", "DRAMA", "HISTORY"],
     "image": {
       "url": "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg",
       "width": 2331,
