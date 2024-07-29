@@ -44,6 +44,10 @@ const moviesPageDocument = graphql(/* GraphQL */ `
         releaseYear
         runtime
       }
+      pageInfo {
+        totalItems
+        ...ToolbarInfo
+      }
     }
   }
 `);
@@ -145,7 +149,7 @@ function MovieRuntime({ movie }: MovieComponentProps) {
 interface SearchParams {
   cert?: string[] | string;
   genres?: string[] | string;
-  q?: string;
+  search?: string;
   sort?: string;
 }
 
@@ -159,7 +163,7 @@ export default async function MoviesPage({ searchParams }: MoviesPageProps) {
     filterSpec: {
       certs: [],
       genres: [],
-      search: undefined,
+      search: searchParams.search,
     },
     sortSpec: parseMovieSortSpec(searchParams.sort),
   };
@@ -170,13 +174,14 @@ export default async function MoviesPage({ searchParams }: MoviesPageProps) {
     variables: { input: moviesRequest },
   });
   const { movies: moviesResponse } = data;
+  const { movies, pageInfo } = moviesResponse;
 
   return (
     <>
-      <Toolbar />
+      <Toolbar toolbarInfo={pageInfo} />
       <MovieListHeader />
       <div className="relative w-full overflow-auto py-2">
-        {moviesResponse.movies.map((movie) => (
+        {movies.map((movie) => (
           <div
             className="flex items-center gap-x-3 rounded-md p-2 text-sm text-muted-foreground hover:bg-muted/50"
             key={movie.id}

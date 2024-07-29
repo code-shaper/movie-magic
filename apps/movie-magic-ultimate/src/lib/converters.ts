@@ -18,7 +18,7 @@ const certificateRatingFromString: Record<string, CertificateRating> = {
   G: CertificateRating.G,
   NR: CertificateRating.Nr,
   PG: CertificateRating.Pg,
-  'PG-13': CertificateRating.Pg_13,
+  PG_13: CertificateRating.Pg_13,
   R: CertificateRating.R,
 };
 
@@ -98,8 +98,8 @@ const movieSortSpecToString: Record<MovieSortSpec, string> = {
 const movieSortSpecFromString: Record<string, MovieSortSpec> = {
   RANK_ASC: MovieSortSpec.RankAsc,
   RANK_DESC: MovieSortSpec.RankDesc,
-  YEAR_ASC: MovieSortSpec.ReleaseYearAsc,
-  YEAR_DESC: MovieSortSpec.ReleaseYearDesc,
+  RELEASE_YEAR_ASC: MovieSortSpec.ReleaseYearAsc,
+  RELEASE_YEAR_DESC: MovieSortSpec.ReleaseYearDesc,
 };
 
 export function formatMovieSortSpec(sortSpec: MovieSortSpec) {

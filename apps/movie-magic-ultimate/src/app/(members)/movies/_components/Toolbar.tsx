@@ -13,6 +13,8 @@ import {
 } from '@/components/ui/select';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Toggle } from '@/components/ui/toggle';
+import type { FragmentType } from '@/generated/gql';
+import { graphql, getFragmentData } from '@/generated/gql';
 import {
   CertificateRating,
   Genre,
@@ -28,6 +30,17 @@ import { useState } from 'react';
 const genreValues = Object.values(Genre);
 const ratingValues = Object.values(CertificateRating);
 const sortValues = Object.values(MovieSortSpec);
+
+/*
+ * "fragment ToolbarInfo" generates:
+ *   1. ToolbarInfoFragment
+ *   2. ToolbarInfoFragmentDoc
+ */
+const ToolbarInfoFragment = graphql(/* GraphQL */ `
+  fragment ToolbarInfo on PaginationInfo {
+    totalItems
+  }
+`);
 
 function Search() {
   return <Input placeholder="Search" />;
@@ -123,8 +136,13 @@ function SortSelector() {
   );
 }
 
-export function Toolbar() {
+export interface ToolbarProps {
+  toolbarInfo: FragmentType<typeof ToolbarInfoFragment>;
+}
+
+export function Toolbar({ toolbarInfo: toolbarInfoProp }: ToolbarProps) {
   const [open, setOpen] = useState(false);
+  const toolbarInfo = getFragmentData(ToolbarInfoFragment, toolbarInfoProp);
 
   return (
     <div className="sticky top-14 z-50 w-full bg-background">
@@ -149,7 +167,7 @@ export function Toolbar() {
               <SortSelector />
             </div>
           </SheetContent>
-          <Badge variant="secondary">250</Badge>
+          <Badge variant="secondary">{toolbarInfo.totalItems}</Badge>
         </Sheet>
       </div>
     </div>

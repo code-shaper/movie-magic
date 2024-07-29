@@ -50,8 +50,8 @@ export class MoviesApi {
     sortSpec,
     pageSpec,
   }: MoviesRequest): Promise<DbMoviesResponse> {
-    // hold result in moviesResult
-    let moviesResult = movies;
+    // make a shallow copy of movies so that we don't accidentally mutate the original array
+    let moviesResult = movies.slice();
 
     // ----- filter by search string -----
     const searchString = filterSpec?.search ?? '';
