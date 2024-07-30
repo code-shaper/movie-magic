@@ -148,8 +148,27 @@ export function parseMovieSortSpec(input: string | undefined) {
 // ----- SearchParams -----
 
 /**
- * SearchParams example:
- *   /movies?search=the&genre=SCI_FI&rating=R&sort=RELEASE_YEAR_DESC
+ * An object containing the search parameters of the MoviesPage URL.
+ * The Next.js router does this translation for us automatically.
+ * However, we immediately convert this structure to a MoviesRequest
+ * because it is much more type-safe.
+ *
+ * Example
+ * -------
+ * The search parameters in the URL
+ *
+ *   /movies?search=the&genre=SCI_FI&rating=PG_13&rating=R&sort=RELEASE_YEAR_DESC
+ *
+ * are converted to the following structure:
+ *
+ *   {
+ *     search: 'the',
+ *     genre: 'SCI_FI',
+ *     rating: ['PG_13', 'R'],
+ *     sort: 'RELEASE_YEAR_DESC'
+ *   }
+ *
+ * @see https://nextjs.org/docs/app/api-reference/file-conventions/page#searchparams-optional
  */
 export interface SearchParams {
   search?: string;
@@ -158,7 +177,11 @@ export interface SearchParams {
   sort?: string;
 }
 
-export function parseSearchParams(searchParams: SearchParams) {
+/**
+ * Converts searchParams to a MoviesRequest which is much more type-safe and
+ * can be directly sent to the GraphQL API.
+ */
+export function searchParamsToMovieRequest(searchParams: SearchParams) {
   const { search, genre, rating, sort } = searchParams;
 
   const moviesRequest: MoviesRequest = {

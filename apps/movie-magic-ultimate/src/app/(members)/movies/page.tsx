@@ -6,7 +6,7 @@ import type { SearchParams } from '@/lib/converters';
 import {
   formatCertificateRating,
   formatGenre,
-  parseSearchParams,
+  searchParamsToMovieRequest,
 } from '@/lib/converters';
 import { formatDuration } from '@/lib/utils';
 import type { ResultOf } from '@graphql-typed-document-node/core';
@@ -151,7 +151,7 @@ interface MoviesPageProps {
 }
 
 export default async function MoviesPage({ searchParams }: MoviesPageProps) {
-  const moviesRequest = parseSearchParams(searchParams);
+  const moviesRequest = searchParamsToMovieRequest(searchParams);
   const { data } = await getClient().query({
     query: moviesPageDocument,
     variables: { input: moviesRequest },

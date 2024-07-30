@@ -1,36 +1,17 @@
 'use client';
 
+import { FilterPanel } from './FilterPanel';
 import { Icons } from '@/components/Icons';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Toggle } from '@/components/ui/toggle';
 import type { FragmentType } from '@/generated/gql';
 import { graphql, getFragmentData } from '@/generated/gql';
 import type { MoviesRequest } from '@/generated/gql/graphql';
-import {
-  CertificateRating,
-  Genre,
-  MovieSortSpec,
-} from '@/generated/gql/graphql';
-import {
-  formatCertificateRating,
-  formatGenre,
-  formatMovieSortSpec,
-} from '@/lib/converters';
-import { useState } from 'react';
+import { MoviesRequestHelper as mrh } from '@/lib/MoviesRequestHelper';
+import { usePathname, useRouter } from 'next/navigation';
 
-const genreValues = Object.values(Genre);
-const ratingValues = Object.values(CertificateRating);
-const sortValues = Object.values(MovieSortSpec);
+import { useState } from 'react';
 
 /*
  * "fragment ToolbarInfo" generates:
@@ -43,100 +24,6 @@ const ToolbarInfoFragment = graphql(/* GraphQL */ `
   }
 `);
 
-function Search({ moviesRequest }: { moviesRequest: MoviesRequest }) {
-  const searchString = moviesRequest.filterSpec?.search ?? '';
-
-  return <Input placeholder="Search" value={searchString} />;
-}
-
-function GenreFilter({ moviesRequest }: { moviesRequest: MoviesRequest }) {
-  const selectedGenres = moviesRequest.filterSpec?.genres ?? [];
-
-  function toggleGenre(genre: string) {
-    console.log('toggleGenre', genre);
-  }
-
-  return (
-    <div className="space-y-4">
-      <h2 className="text-sm font-medium">Genre</h2>
-      <div className="flex flex-wrap gap-2">
-        {genreValues.map((genre) => (
-          <Toggle
-            aria-label={formatGenre(genre)}
-            className="w-20"
-            key={genre}
-            onPressedChange={() => {
-              toggleGenre(genre);
-            }}
-            pressed={selectedGenres.includes(genre)}
-            size="sm"
-            variant="outline"
-          >
-            {formatGenre(genre)}
-          </Toggle>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function RatingFilter({ moviesRequest }: { moviesRequest: MoviesRequest }) {
-  const selectedRatings = moviesRequest.filterSpec?.certs ?? [];
-
-  function toggleRating(rating: string) {
-    console.log('toggleRating', rating);
-  }
-
-  return (
-    <div className="space-y-4">
-      <h2 className="text-sm font-medium">Rating</h2>
-      <div className="flex flex-wrap gap-2">
-        {ratingValues.map((rating) => (
-          <Toggle
-            aria-label={formatCertificateRating(rating)}
-            className="w-20"
-            key={rating}
-            onPressedChange={() => {
-              toggleRating(rating);
-            }}
-            pressed={selectedRatings.includes(rating)}
-            size="sm"
-            variant="outline"
-          >
-            {formatCertificateRating(rating)}
-          </Toggle>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function SortSelector({ moviesRequest }: { moviesRequest: MoviesRequest }) {
-  const selectedSort = moviesRequest.sortSpec ?? MovieSortSpec.RankAsc;
-
-  const setSelectedSort = (sort: MovieSortSpec) => {
-    console.log('setSelectedSort', sort);
-  };
-
-  return (
-    <div className="space-y-4">
-      <h2 className="text-sm font-medium">Sort By</h2>
-      <Select onValueChange={setSelectedSort} value={selectedSort}>
-        <SelectTrigger className="w-[220px]">
-          <SelectValue placeholder="Select a sort field" />
-        </SelectTrigger>
-        <SelectContent>
-          {sortValues.map((sortValue) => (
-            <SelectItem key={sortValue} value={sortValue}>
-              {formatMovieSortSpec(sortValue)}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-    </div>
-  );
-}
-
 export interface ToolbarProps {
   moviesRequest: MoviesRequest;
   toolbarInfo: FragmentType<typeof ToolbarInfoFragment>;
@@ -147,7 +34,21 @@ export function Toolbar({
   toolbarInfo: toolbarInfoProp,
 }: ToolbarProps) {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
   const toolbarInfo = getFragmentData(ToolbarInfoFragment, toolbarInfoProp);
+
+  function handleApplyFilters(moviesRequest: MoviesRequest) {
+    setOpen(false);
+    const searchParamsString = mrh.toSearchParamsString(moviesRequest);
+    router.push(`${pathname}?${searchParamsString}`);
+  }
+
+  function handleClearFilters() {
+    setOpen(false);
+    const searchParamsString = mrh.toSearchParamsString(mrh.newMoviesRequest());
+    router.push(`${pathname}?${searchParamsString}`);
+  }
 
   return (
     <div className="sticky top-14 z-50 w-full bg-background">
@@ -159,18 +60,11 @@ export function Toolbar({
             </Button>
           </SheetTrigger>
           <SheetContent className="w-full" side="left">
-            <div className="flex items-center justify-between py-8">
-              <h1 className="text-lg">Filter & Sort</h1>
-              <Button size="sm" variant="secondary">
-                Clear filters
-              </Button>
-            </div>
-            <div className="space-y-8">
-              <Search moviesRequest={moviesRequest} />
-              <GenreFilter moviesRequest={moviesRequest} />
-              <RatingFilter moviesRequest={moviesRequest} />
-              <SortSelector moviesRequest={moviesRequest} />
-            </div>
+            <FilterPanel
+              moviesRequest={moviesRequest}
+              onApplyFilters={handleApplyFilters}
+              onClearFilters={handleClearFilters}
+            />
           </SheetContent>
           <Badge variant="secondary">{toolbarInfo.totalItems}</Badge>
         </Sheet>
