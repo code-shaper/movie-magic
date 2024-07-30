@@ -6,6 +6,7 @@ import {
 } from './MoviesRequestContextProvider';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import {
   Select,
   SelectContent,
@@ -175,12 +176,14 @@ export function FilterPanel({
   return (
     <MoviesRequestContextProvider initialState={moviesRequest}>
       <Header onApplyFilters={onApplyFilters} onClearFilters={onClearFilters} />
-      <div className="space-y-8">
-        <Search />
-        <GenreFilter />
-        <RatingFilter />
-        <SortSelector />
-      </div>
+      <ScrollArea className="h-[calc(100vh-9rem)]">
+        <div className="space-y-8">
+          <Search />
+          <GenreFilter />
+          <RatingFilter />
+          <SortSelector />
+        </div>
+      </ScrollArea>
     </MoviesRequestContextProvider>
   );
 }
