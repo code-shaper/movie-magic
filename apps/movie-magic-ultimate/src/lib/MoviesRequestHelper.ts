@@ -65,10 +65,21 @@ function getSortSpec(moviesRequest: MoviesRequest) {
   return moviesRequest.sortSpec ?? '';
 }
 
-const setSortSpec = (moviesRequest: MoviesRequest, sort: MovieSortSpec) => ({
-  ...moviesRequest,
-  sortSpec: sort,
-});
+function setSortSpec(moviesRequest: MoviesRequest, sort: MovieSortSpec) {
+  return {
+    ...moviesRequest,
+    sortSpec: sort,
+  };
+}
+
+function hasFilters(moviesRequest: MoviesRequest) {
+  return (
+    getSearchFilter(moviesRequest).length > 0 ||
+    getGenresFilter(moviesRequest).length > 0 ||
+    getRatingsFilter(moviesRequest).length > 0 ||
+    getSortSpec(moviesRequest).length > 0
+  );
+}
 
 function toSearchParamsString(moviesRequest: MoviesRequest) {
   const urlSearchParams = new URLSearchParams();
@@ -111,6 +122,8 @@ export const MoviesRequestHelper = {
 
   getSortSpec,
   setSortSpec,
+
+  hasFilters,
 
   toSearchParamsString,
 };

@@ -75,9 +75,9 @@ function GenreFilter() {
   const { moviesRequest, setMoviesRequest } = useMoviesRequestContext();
   const selectedGenres = mrh.getGenresFilter(moviesRequest);
 
-  function toggleGenre(genre: Genre) {
+  const toggleGenre = (genre: Genre) => {
     setMoviesRequest(mrh.toggleGenre(moviesRequest, genre));
-  }
+  };
 
   return (
     <div className="space-y-4">
@@ -107,9 +107,9 @@ function RatingFilter() {
   const { moviesRequest, setMoviesRequest } = useMoviesRequestContext();
   const selectedRatings = mrh.getRatingsFilter(moviesRequest);
 
-  function toggleRating(rating: CertificateRating) {
+  const toggleRating = (rating: CertificateRating) => {
     setMoviesRequest(mrh.toggleRating(moviesRequest, rating));
-  }
+  };
 
   return (
     <div className="space-y-4">

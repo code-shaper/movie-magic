@@ -38,17 +38,17 @@ export function Toolbar({
   const pathname = usePathname();
   const toolbarInfo = getFragmentData(ToolbarInfoFragment, toolbarInfoProp);
 
-  function handleApplyFilters(moviesRequest: MoviesRequest) {
+  const handleApplyFilters = (moviesRequest: MoviesRequest) => {
     setOpen(false);
     const searchParamsString = mrh.toSearchParamsString(moviesRequest);
     router.push(`${pathname}?${searchParamsString}`);
-  }
+  };
 
-  function handleClearFilters() {
+  const handleClearFilters = () => {
     setOpen(false);
     const searchParamsString = mrh.toSearchParamsString(mrh.newMoviesRequest());
     router.push(`${pathname}?${searchParamsString}`);
-  }
+  };
 
   return (
     <div className="sticky top-14 z-50 w-full bg-background">
@@ -56,7 +56,12 @@ export function Toolbar({
         <Sheet onOpenChange={setOpen} open={open}>
           <SheetTrigger asChild>
             <Button variant="outline">
-              Filter & Sort <Icons.listFilter className="ml-2 size-4" />
+              Filter & Sort{' '}
+              {mrh.hasFilters(moviesRequest) ? (
+                <Icons.listFilterActive className="ml-2 size-4" />
+              ) : (
+                <Icons.listFilter className="ml-2 size-4" />
+              )}
             </Button>
           </SheetTrigger>
           <SheetContent className="w-full" side="left">

@@ -33,6 +33,25 @@ export const Icons = {
   globe: Globe,
   image: Image,
   listFilter: ListFilter,
+  listFilterActive: (props: IconProps) => (
+    // https://lucide.dev/icons with added circle to show active state
+    <svg
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      width="24"
+      {...props}
+    >
+      <path d="M3 6h12" />
+      <path d="M7 12h10" />
+      <path d="M10 18h4" />
+      <circle cx="21" cy="6" fill="currentColor" r="2" />
+    </svg>
+  ),
   menu: Menu,
   moon: (props: IconProps) => (
     // https://www.radix-ui.com/icons
