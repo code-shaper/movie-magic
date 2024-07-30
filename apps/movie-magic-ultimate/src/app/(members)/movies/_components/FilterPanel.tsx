@@ -176,7 +176,7 @@ export function FilterPanel({
   return (
     <MoviesRequestContextProvider initialState={moviesRequest}>
       <Header onApplyFilters={onApplyFilters} onClearFilters={onClearFilters} />
-      <ScrollArea className="h-[calc(100vh-14rem)]">
+      <ScrollArea className="h-[calc(100vh-15rem)]">
         <div className="space-y-8">
           <Search />
           <GenreFilter />
