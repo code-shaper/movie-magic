@@ -29,25 +29,23 @@ function Header() {
 function Content() {
   return (
     <div className="pb-24 pt-6 sm:pb-32 lg:flex-1 lg:pb-0 lg:pt-28">
-      <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl">
-        <span className="block animate-slide-top [animation-delay:0.5s] [animation-fill-mode:backwards] lg:animate-slide-right lg:[animation-delay:0.5s] lg:[animation-fill-mode:backwards]">
-          Unlimited movies
-        </span>
-        <span className="block animate-slide-top text-primary [animation-delay:1s] [animation-fill-mode:backwards] lg:animate-slide-right lg:[animation-delay:1s] lg:[animation-fill-mode:backwards]">
-          anytime, anywhere
-        </span>
+      <h1 className="animate-slide-up text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl">
+        <span className="block">Unlimited movies</span>
+        <span className="block text-primary">anytime, anywhere</span>
       </h1>
-      <p className="mt-6 animate-slide-top text-lg text-muted-foreground [animation-delay:2s] [animation-fill-mode:backwards] lg:animate-slide-right lg:[animation-delay:2s] lg:[animation-fill-mode:backwards] xl:text-xl">
-        Watch a world of blockbusters, classics, and exclusive originals with
-        our premium service.
-      </p>
-      <div className="mt-10 space-y-2">
-        <p className="text-sm text-muted-foreground">New to Movie Magic?</p>
-        <Button asChild size="lg">
-          <Link href="/movies" prefetch={false}>
-            Get Started
-          </Link>
-        </Button>
+      <div className="animate-slide-up [animation-delay:1s] [animation-fill-mode:backwards]">
+        <p className="mt-6 text-lg text-muted-foreground xl:text-xl">
+          Watch a world of blockbusters, classics, and exclusive originals with
+          our premium service.
+        </p>
+        <div className="mt-10 space-y-2">
+          <p className="text-sm text-muted-foreground">New to Movie Magic?</p>
+          <Button asChild size="lg">
+            <Link href="/movies" prefetch={false}>
+              Get Started
+            </Link>
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -76,11 +76,7 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
-        'slide-right': {
-          from: { transform: 'translateX(-20px)', opacity: '0' },
-          to: { transform: 'translateX(0px)', opacity: '1' },
-        },
-        'slide-top': {
+        'slide-up': {
           from: { transform: 'translateY(20px)', opacity: '0' },
           to: { transform: 'translateY(0px)', opacity: '1' },
         },
@@ -88,8 +84,7 @@ const config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'slide-right': 'slide-right 0.3s ease-out',
-        'slide-top': 'slide-top 0.3s ease-out',
+        'slide-up': 'slide-up 1s cubic-bezier(0.5,1,0.89,1)',
       },
     },
   },
