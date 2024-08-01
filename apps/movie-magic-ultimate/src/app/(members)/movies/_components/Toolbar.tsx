@@ -71,7 +71,7 @@ export function Toolbar({
               onClearFilters={handleClearFilters}
             />
           </SheetContent>
-          <Badge variant="secondary">{toolbarInfo.totalItems}</Badge>
+          <Badge variant="secondary">{toolbarInfo.totalItems} movies</Badge>
         </Sheet>
       </div>
     </div>
