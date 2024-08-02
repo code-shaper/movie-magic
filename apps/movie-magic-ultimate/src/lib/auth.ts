@@ -8,6 +8,14 @@ const config: NextAuthConfig = {
   pages: {
     signIn: '/sign-in',
   },
+  callbacks: {
+    authorized: async ({ auth }) => {
+      // Simulate asynchronous behavior
+      await Promise.resolve();
+      // Logged in users are authenticated, otherwise redirect to login page
+      return Boolean(auth);
+    },
+  },
 };
 
 export const { handlers, signIn, signOut, auth } = NextAuth(config);
