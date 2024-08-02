@@ -1,6 +1,6 @@
 'use client';
 
-import { Icons } from './Icons';
+import { Icons } from '@/components/Icons';
 import { mainNavItems } from '@/config/main-nav';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';

@@ -1,27 +1,26 @@
+import { Footer } from '@/components/Footer';
 import { Icons } from '@/components/Icons';
-import { Button, buttonVariants } from '@/components/ui/button';
-import { footerItems } from '@/config/footer';
+import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
-import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 
 function Header() {
   return (
-    <header className="flex items-center space-x-2 py-8">
-      <Icons.film className="size-6" />
-      <span className="text-xl font-medium dark:font-semibold">
-        {siteConfig.name}
-      </span>
-      <nav className="flex flex-1 items-center justify-end gap-4">
-        <Link
-          className="text-sm font-semibold leading-6"
-          href="/movies"
-          prefetch={false}
-        >
-          Sign In <span aria-hidden="true">&rarr;</span>
-        </Link>
-      </nav>
+    <header className="flex items-center justify-between py-8">
+      <div className="flex items-center space-x-2">
+        <Icons.film className="size-6" />
+        <span className="text-xl font-medium dark:font-semibold">
+          {siteConfig.name}
+        </span>
+      </div>
+      <Link
+        className="text-sm font-semibold leading-6"
+        href="/sign-in"
+        prefetch={false}
+      >
+        Sign In <span aria-hidden="true">&rarr;</span>
+      </Link>
     </header>
   );
 }
@@ -39,7 +38,9 @@ function Content() {
           our premium service.
         </p>
         <div className="mt-10 space-y-2">
-          <p className="text-sm text-muted-foreground">New to Movie Magic?</p>
+          <p className="text-sm text-muted-foreground">
+            New to {siteConfig.name}?
+          </p>
           <Button asChild size="lg">
             <Link href="/movies" prefetch={false}>
               Get Started
@@ -48,38 +49,6 @@ function Content() {
         </div>
       </div>
     </div>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="flex items-center justify-between py-3 lg:py-2">
-      <p className="text-sm text-muted-foreground">
-        &copy; {new Date().getFullYear()} Movie Magic
-      </p>
-      <nav className="flex gap-1">
-        {footerItems.map((item) => (
-          <Link
-            href={item.href}
-            key={item.name}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <div
-              className={cn(
-                buttonVariants({
-                  variant: 'ghost',
-                }),
-                'h-8 w-8 px-0'
-              )}
-            >
-              <item.icon className="size-4 text-muted-foreground" />
-              <span className="sr-only">{item.name}</span>
-            </div>
-          </Link>
-        ))}
-      </nav>
-    </footer>
   );
 }
 

@@ -1,13 +1,13 @@
 'use client';
 
-import { Icons } from './Icons';
-import { Button } from './ui/button';
+import { Icons } from '@/components/Icons';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from './ui/dropdown-menu';
+} from '@/components/ui/dropdown-menu';
 import { useTheme } from 'next-themes';
 
 export function ModeToggle() {

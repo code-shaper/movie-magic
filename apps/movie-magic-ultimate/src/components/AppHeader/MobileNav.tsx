@@ -1,8 +1,8 @@
 'use client';
 
-import { Icons } from './Icons';
-import { Button } from './ui/button';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { Icons } from '@/components/Icons';
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { mainNavItems } from '@/config/main-nav';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
