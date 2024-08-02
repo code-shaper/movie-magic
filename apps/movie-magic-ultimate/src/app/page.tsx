@@ -42,7 +42,7 @@ function Content() {
             New to {siteConfig.name}?
           </p>
           <Button asChild size="lg">
-            <Link href="/movies" prefetch={false}>
+            <Link href="/sign-up" prefetch={false}>
               Get Started
             </Link>
           </Button>
