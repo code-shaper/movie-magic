@@ -7,12 +7,12 @@ generator.
 
 This repository contains the completed code for the
 [Code Shaper tutorial](https://code-shaper.dev/docs/getting-started/core-concepts),
-which demonstrates how code generation can help your team build robust
-applications faster while maintaining consistent code quality.
+which demonstrates how code generation can help you build robust applications
+faster while maintaining code consistency and quality.
 
 The tutorial begins by generating a basic web application using your preferred
-tech stack. From there, we extend it to display a list of the top 10 movies, as
-shown in the screenshot below:
+tech stack. From there, we extend it to display a list of the top 10 movies of
+all time. See the screenshot below:
 
 ![Movie Magic Tutorial](assets/movie-magic-tutorial.png)
 
@@ -20,8 +20,8 @@ This is just the beginning. With Code Shaper, you can continuously add features
 to build production-grade applications. We've done precisely that with the Movie
 Magic Ultimate application included in this repository. This version features a
 meticulously crafted visual design, a real GraphQL backend, user authentication,
-and many other features found in real-world products. Check out the screenshot
-below:
+and many other features found in real-world applications. Check out the
+screenshot below:
 
 ![Movie Magic Ultimate](assets/movie-magic-ultimate.png)
 
