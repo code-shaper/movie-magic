@@ -25,14 +25,14 @@ screenshot below:
 
 ![Movie Magic Ultimate](assets/movie-magic-ultimate.png)
 
-## What's in this repo
+## What's in this repo?
 
 We have the Movie Magic application coded using 4 different stacks:
 
 1. [Next.js](https://nextjs.org/)
 2. [Vite](https://vitejs.dev/)
 3. [Remix](https://remix.run/)
-4. Ultimate: [Next.js](https://nextjs.org/) +
+4. The Ultimate: [Next.js](https://nextjs.org/) +
    [Tailwind CSS](https://tailwindcss.com/) +
    [shadcn/ui](https://ui.shadcn.com/) +
    [Apollo GraphQL](https://www.apollographql.com/docs/react/)
