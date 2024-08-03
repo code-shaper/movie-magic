@@ -2,8 +2,10 @@ import { AppFooter } from '@/components/AppFooter';
 import { MinimalHeader } from '@/components/AppHeader';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
+import { auth } from '@/lib/auth';
 import Image from 'next/image';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 function Content() {
   return (
@@ -54,7 +56,13 @@ function HeroImage() {
  *    on larger screens.
  *      [Content] [ Image ]
  */
-export default function HomePage() {
+export default async function HomePage() {
+  // if user is authenticated, redirect to movies page
+  const session = await auth();
+  if (session) {
+    redirect('/movies');
+  }
+
   return (
     <>
       {/* Vertical Layout < lg */}
