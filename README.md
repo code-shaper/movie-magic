@@ -2,11 +2,32 @@
 
 Live Demo: [Movie Magic Ultimate](https://movie-magic-ultimate.vercel.app/)
 
-This repository was bootstrapped with [Code Shaper](https://code-shaper.dev).
+Welcome to [Code Shaper](https://code-shaper.dev) – a delightful, modular code
+generator.
 
-It shows how Code Shaper can be used to create applications faster and using
-best practices. We have provided sample applications using the following
-frameworks:
+This repository contains the completed code for the
+[Code Shaper tutorial](https://code-shaper.dev/docs/getting-started/core-concepts),
+which demonstrates how code generation can help your team build robust
+applications faster while maintaining consistent code quality.
+
+The tutorial begins by generating a basic web application using your preferred
+tech stack. From there, we extend it to display a list of the top 10 movies, as
+shown in the screenshot below:
+
+![Movie Magic Tutorial](assets/movie-magic-tutorial.png)
+
+This is just the beginning. With Code Shaper, you can continuously add features
+to build production-grade applications. We've done precisely that with the Movie
+Magic Ultimate application included in this repository. This version features a
+meticulously crafted visual design, a real GraphQL backend, user authentication,
+and many other features found in real-world products. Check out the screenshot
+below:
+
+![Movie Magic Ultimate](assets/movie-magic-ultimate.png)
+
+## What's in this repo
+
+We have the Movie Magic application coded using 4 different stacks:
 
 1. [Next.js](https://nextjs.org/)
 2. [Vite](https://vitejs.dev/)
@@ -15,12 +36,6 @@ frameworks:
    [Tailwind CSS](https://tailwindcss.com/) +
    [shadcn/ui](https://ui.shadcn.com/) +
    [Apollo GraphQL](https://www.apollographql.com/docs/react/)
-
-To see step-by-step instructions for creating these apps, visit
-[Getting Started](http://localhost:4000/docs/getting-started/core-concepts) in
-Code Shaper docs.
-
-![Home Page](assets/home-page.png)
 
 ## Prerequisites for development
 
