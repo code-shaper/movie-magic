@@ -2,17 +2,14 @@
 
 Live Demo: [Movie Magic Ultimate](https://movie-magic-ultimate.vercel.app/)
 
-Welcome to [Code Shaper](https://code-shaper.dev) – a delightful, modular code
-generator.
+Welcome to Movie Magic, the example app for the
+[Code Shaper tutorial](https://code-shaper.dev/docs/getting-started/core-concepts).
+The goal of this tutorial is to demonstrate how code generation can help you
+build robust applications faster while maintaining code consistency and quality.
 
-This repository contains the completed code for the
-[Code Shaper tutorial](https://code-shaper.dev/docs/getting-started/core-concepts),
-which demonstrates how code generation can help you build robust applications
-faster while maintaining code consistency and quality.
-
-The tutorial begins by generating a basic web application using your preferred
-tech stack. From there, we extend it to display a list of the top 10 movies of
-all time. See the screenshot below:
+We begin by generating a basic web application using your preferred tech stack.
+From there, we extend it to display a list of top 10 movies of all time. See the
+screenshot below:
 
 ![Movie Magic Tutorial](assets/movie-magic-tutorial.png)
 
