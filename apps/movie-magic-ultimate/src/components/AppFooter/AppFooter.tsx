@@ -1,10 +1,10 @@
-import { buttonVariants } from './ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import { footerItems } from '@/config/footer';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
-export function Footer() {
+export function AppFooter() {
   return (
     <footer className="flex items-center justify-between py-3 lg:py-2">
       <p className="text-sm text-muted-foreground">

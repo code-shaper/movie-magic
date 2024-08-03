@@ -1,29 +1,9 @@
-import { Footer } from '@/components/Footer';
-import { Icons } from '@/components/Icons';
+import { AppFooter } from '@/components/AppFooter';
+import { MinimalHeader } from '@/components/AppHeader';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
 import Image from 'next/image';
 import Link from 'next/link';
-
-function Header() {
-  return (
-    <header className="flex items-center justify-between py-8">
-      <div className="flex items-center space-x-2">
-        <Icons.film className="size-6" />
-        <span className="text-xl font-medium dark:font-semibold">
-          {siteConfig.name}
-        </span>
-      </div>
-      <Link
-        className="text-sm font-semibold leading-6"
-        href="/sign-in"
-        prefetch={false}
-      >
-        Sign In <span aria-hidden="true">&rarr;</span>
-      </Link>
-    </header>
-  );
-}
 
 function Content() {
   return (
@@ -80,21 +60,21 @@ export default function HomePage() {
       {/* Vertical Layout < lg */}
       <div className="lg:hidden">
         <div className="mx-auto max-w-2xl px-6">
-          <Header />
+          <MinimalHeader />
           <Content />
         </div>
         <HeroImage />
         <div className="mx-auto max-w-2xl px-6">
-          <Footer />
+          <AppFooter />
         </div>
       </div>
 
       {/* Horizontal Layout @ lg */}
       <div className="hidden lg:grid lg:grid-cols-2">
         <div className="mx-auto flex h-screen max-h-[1024px] max-w-4xl flex-col px-12">
-          <Header />
+          <MinimalHeader />
           <Content />
-          <Footer />
+          <AppFooter />
         </div>
         <HeroImage />
       </div>

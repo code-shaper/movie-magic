@@ -13,7 +13,7 @@ import type { LucideIcon } from 'lucide-react';
 
 export type Icon = LucideIcon;
 
-type IconProps = React.HTMLAttributes<SVGElement>;
+export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
   check: Check,

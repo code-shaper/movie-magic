@@ -1,10 +1,10 @@
 'use client';
 
+import { Logo } from './Logo';
 import { Icons } from '@/components/Icons';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { mainNavItems } from '@/config/main-nav';
-import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import type { LinkProps } from 'next/link';
@@ -57,14 +57,7 @@ export function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent className="pr-0" side="left">
-        <MobileLink
-          className="flex items-center"
-          href="/"
-          onOpenChange={setOpen}
-        >
-          <Icons.film className="mr-2 size-4" />
-          <span className="font-bold">{siteConfig.name}</span>
-        </MobileLink>
+        <Logo />
         <div className="my-4 flex flex-col space-y-3 pb-10 pl-6">
           {mainNavItems.map((item) => (
             <MobileLink

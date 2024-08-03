@@ -1,21 +1,8 @@
-import { Footer } from '@/components/Footer';
-import { Icons } from '@/components/Icons';
-import { Button } from '@/components/ui/button';
-import { siteConfig } from '@/config/site';
-import { signIn } from '@/lib/auth';
-
-function Header() {
-  return (
-    <header className="flex items-center py-6">
-      <div className="flex items-center space-x-2">
-        <Icons.film className="size-6" />
-        <span className="text-xl font-medium dark:font-semibold">
-          {siteConfig.name}
-        </span>
-      </div>
-    </header>
-  );
-}
+import { AppFooter } from '@/components/AppFooter';
+import { MinimalHeader } from '@/components/AppHeader';
+import { SignInButton } from '@/components/Auth';
+import { providers } from '@/config/providers';
+import Link from 'next/link';
 
 function Main() {
   return (
@@ -24,46 +11,34 @@ function Main() {
         Create an account
       </h1>
       <div className="my-6 mb-8 mt-10 w-full space-y-4">
-        <form
-          action={async () => {
-            'use server';
-            await signIn('google', { redirectTo: '/movies' });
-          }}
-          className="w-full"
-        >
-          <Button className="w-full" type="submit" variant="outline">
-            <Icons.google className="mr-2 size-4" />
-            Continue with Google
-          </Button>
-        </form>
-        <form
-          action={async () => {
-            'use server';
-            await signIn('github', { redirectTo: '/movies' });
-          }}
-          className="w-full"
-        >
-          <Button className="w-full" type="submit" variant="outline">
-            <Icons.gitHub className="mr-2 size-4" />
-            Continue with GitHub
-          </Button>
-        </form>
+        {providers.map((provider) => (
+          <SignInButton
+            ProviderIcon={provider.icon}
+            key={provider.id}
+            providerId={provider.id}
+            providerName={provider.name}
+            redirectTo="/movies"
+          />
+        ))}
       </div>
+      <Link className="text-sm leading-6" href="/sign-in" prefetch={false}>
+        Already have an account? Sign In
+      </Link>
     </main>
   );
 }
 
-export default function SignInPage() {
+export default function SignUpPage() {
   return (
     <div className="flex h-screen flex-col px-6">
       <div className="container max-w-screen-lg">
-        <Header />
+        <MinimalHeader authMenu="SignInLink" />
       </div>
       <div className="container max-w-[320px] flex-1">
         <Main />
       </div>
       <div className="container mt-20 max-w-screen-lg">
-        <Footer />
+        <AppFooter />
       </div>
     </div>
   );
