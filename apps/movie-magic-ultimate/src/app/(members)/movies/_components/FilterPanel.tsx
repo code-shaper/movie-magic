@@ -6,7 +6,6 @@ import {
 } from './MoviesRequestContextProvider';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import {
   Select,
   SelectContent,
@@ -41,7 +40,7 @@ function Header({ onApplyFilters, onClearFilters }: HeaderProps) {
   const { moviesRequest } = useMoviesRequestContext();
 
   return (
-    <div className="flex items-center gap-2 py-8">
+    <div className="flex items-center gap-2">
       <h1 className="flex-1 text-lg">Filter & Sort</h1>
       <Button onClick={onClearFilters} size="sm" variant="secondary">
         Clear
@@ -175,15 +174,18 @@ export function FilterPanel({
 }: FilterPanelProps) {
   return (
     <MoviesRequestContextProvider initialState={moviesRequest}>
-      <Header onApplyFilters={onApplyFilters} onClearFilters={onClearFilters} />
-      <ScrollArea className="h-[calc(100vh-15rem)]">
-        <div className="space-y-8">
+      <div className="flex h-full flex-col gap-y-4 pt-6">
+        <Header
+          onApplyFilters={onApplyFilters}
+          onClearFilters={onClearFilters}
+        />
+        <div className="flex flex-1 flex-col gap-y-8 overflow-auto px-1 py-4">
           <Search />
           <GenreFilter />
           <RatingFilter />
           <SortSelector />
         </div>
-      </ScrollArea>
+      </div>
     </MoviesRequestContextProvider>
   );
 }
