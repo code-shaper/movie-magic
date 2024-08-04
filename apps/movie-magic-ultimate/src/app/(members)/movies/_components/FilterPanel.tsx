@@ -174,7 +174,7 @@ export function FilterPanel({
 }: FilterPanelProps) {
   return (
     <MoviesRequestContextProvider initialState={moviesRequest}>
-      <div className="flex h-full flex-col gap-y-4 pt-6">
+      <div className="flex h-full flex-col gap-y-4 pt-8">
         <Header
           onApplyFilters={onApplyFilters}
           onClearFilters={onClearFilters}
