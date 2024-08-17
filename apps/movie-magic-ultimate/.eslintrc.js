@@ -15,6 +15,22 @@ module.exports = {
       processor: '@graphql-eslint/graphql',
     },
     {
+      /*
+       * Fix issues with shadcn components
+       * See here: https://github.com/shadcn-ui/ui/issues/120#issuecomment-1828081539
+       */
+      files: ['**/components/ui/*.tsx'],
+      rules: {
+        'react/prop-types': [
+          2,
+          {
+            ignore: ['checked', 'className', 'position', 'sideOffset', 'type'],
+          },
+        ],
+        'react-refresh/only-export-components': 'off',
+      },
+    },
+    {
       files: ['*.graphql'],
       extends: [
         'plugin:@graphql-eslint/operations-all',

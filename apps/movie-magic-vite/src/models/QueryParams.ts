@@ -28,7 +28,7 @@ export function queryParamsToSearchParams(queryParams: QueryParams) {
   });
 
   // ----- sort -----
-  if (queryParams.sort) {
+  if (queryParams.sort !== undefined) {
     urlSearchParams.append('sort', queryParams.sort);
   }
 

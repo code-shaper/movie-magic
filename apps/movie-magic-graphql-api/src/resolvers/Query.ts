@@ -16,9 +16,8 @@ export const Query: Resolvers = {
     },
 
     movies: async (_parent, { input: moviesRequest }, { dataSources }) => {
-      const moviesResponse = await dataSources.moviesApi.getMovies(
-        moviesRequest
-      );
+      const moviesResponse =
+        await dataSources.moviesApi.getMovies(moviesRequest);
       return moviesResponse;
     },
   },
@@ -27,7 +26,7 @@ export const Query: Resolvers = {
     directors: async (parent, _args, { dataSources }) => {
       const directors = await dataSources.peopleApi.getPeople(
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        parent.directorIds
+        parent.directorIds,
       );
       return directors;
     },

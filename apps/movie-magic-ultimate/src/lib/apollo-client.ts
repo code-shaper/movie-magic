@@ -24,5 +24,5 @@ export const { getClient, query, PreloadQuery } = registerApolloClient(
          */
         fetchOptions: { cache: 'no-store' },
       }),
-    })
+    }),
 );

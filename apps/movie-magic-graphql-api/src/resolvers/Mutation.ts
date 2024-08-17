@@ -9,11 +9,11 @@ export const Mutation: Resolvers = {
     setFeaturedMovie: async (
       _parent,
       { input: { movieId, isFeatured } },
-      { dataSources }
+      { dataSources },
     ) => {
       const movie = await dataSources.moviesApi.setFeaturedMovie(
         movieId,
-        isFeatured
+        isFeatured,
       );
       if (movie === undefined) {
         return {

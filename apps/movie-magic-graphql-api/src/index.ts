@@ -12,7 +12,7 @@ const port = process.env.PORT ?? '4000';
 
 const loggerPlugin = {
   async requestDidStart(
-    requestContext: GraphQLRequestContext<DataSourceContext>
+    requestContext: GraphQLRequestContext<DataSourceContext>,
   ) {
     console.log('Request:', requestContext.request.operationName);
     await Promise.resolve();
@@ -23,7 +23,7 @@ async function main() {
   const typeDefs = gql(
     readFileSync('./src/gql/schema.graphql', {
       encoding: 'utf-8',
-    })
+    }),
   );
 
   const server = new ApolloServer<DataSourceContext>({

@@ -47,6 +47,9 @@ cp apps/movie-magic-nextjs/.env.example apps/movie-magic-nextjs/.env.local
 cp apps/movie-magic-vite/.env.example apps/movie-magic-vite/.env.local
 cp apps/movie-magic-ultimate/.env.example apps/movie-magic-ultimate/.env.local
 
+# Note: apps/movie-magic-ultimate/.env.local requires you to fill in your own keys.
+# You may want to run the live demo instead.
+
 # build all apps
 nvm use        # use the required version of node
 npm ci         # install dependencies

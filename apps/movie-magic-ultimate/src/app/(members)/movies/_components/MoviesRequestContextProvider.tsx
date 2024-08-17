@@ -37,7 +37,7 @@ function useMoviesRequestContext() {
   /* istanbul ignore next */
   if (moviesRequestContext === undefined) {
     throw new Error(
-      'useMoviesRequestContext must be used within a MoviesRequestContextProvider'
+      'useMoviesRequestContext must be used within a MoviesRequestContextProvider',
     );
   }
   return moviesRequestContext;

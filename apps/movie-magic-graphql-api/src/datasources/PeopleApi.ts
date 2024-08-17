@@ -11,7 +11,7 @@ export class PeopleApi {
 
   public async getPeople(ids: string[]) {
     const peopleList = ids.map((id) =>
-      people.find((person) => person.id === id)
+      people.find((person) => person.id === id),
     );
     return Promise.resolve(peopleList);
   }

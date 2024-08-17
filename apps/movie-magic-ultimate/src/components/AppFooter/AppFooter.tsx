@@ -23,7 +23,7 @@ export function AppFooter() {
                 buttonVariants({
                   variant: 'ghost',
                 }),
-                'h-8 w-8 px-0'
+                'h-8 w-8 px-0',
               )}
             >
               <item.icon className="size-4 text-muted-foreground" />

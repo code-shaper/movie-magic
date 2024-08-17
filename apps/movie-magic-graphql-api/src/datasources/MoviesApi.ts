@@ -57,7 +57,7 @@ export class MoviesApi {
     const searchString = filterSpec?.search ?? '';
     if (searchString !== '') {
       moviesResult = moviesResult.filter((movie) =>
-        movie.name.toLowerCase().includes(searchString.toLowerCase())
+        movie.name.toLowerCase().includes(searchString.toLowerCase()),
       );
     }
 
@@ -71,7 +71,7 @@ export class MoviesApi {
     const certFilters = filterSpec?.certs ?? [];
     if (certFilters.length > 0) {
       moviesResult = moviesResult.filter((movie) =>
-        certFilters.includes(movie.certificate.rating)
+        certFilters.includes(movie.certificate.rating),
       );
     }
 
@@ -80,7 +80,7 @@ export class MoviesApi {
     if (genreFilters.length > 0) {
       moviesResult = moviesResult.filter((movie) =>
         // does at least one genre from movies.genres match genreFilters
-        movie.genres.some((genre) => genreFilters.includes(genre))
+        movie.genres.some((genre) => genreFilters.includes(genre)),
       );
     }
 
@@ -89,22 +89,22 @@ export class MoviesApi {
       switch (sortSpec) {
         case MovieSortSpec.RankAsc:
           moviesResult = moviesResult.sort(
-            (movie1, movie2) => movie1.rank - movie2.rank
+            (movie1, movie2) => movie1.rank - movie2.rank,
           );
           break;
         case MovieSortSpec.RankDesc:
           moviesResult = moviesResult.sort(
-            (movie1, movie2) => movie2.rank - movie1.rank
+            (movie1, movie2) => movie2.rank - movie1.rank,
           );
           break;
         case MovieSortSpec.ReleaseYearAsc:
           moviesResult = moviesResult.sort(
-            (movie1, movie2) => movie1.releaseYear - movie2.releaseYear
+            (movie1, movie2) => movie1.releaseYear - movie2.releaseYear,
           );
           break;
         case MovieSortSpec.ReleaseYearDesc:
           moviesResult = moviesResult.sort(
-            (movie1, movie2) => movie2.releaseYear - movie1.releaseYear
+            (movie1, movie2) => movie2.releaseYear - movie1.releaseYear,
           );
           break;
       }

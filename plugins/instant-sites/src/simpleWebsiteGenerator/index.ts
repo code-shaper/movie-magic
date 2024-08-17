@@ -73,7 +73,7 @@ async function generateSimpleWebsite(rootDir: string, inputOptions: Options) {
   console.log('npm run dev');
   console.log();
   console.log(
-    '# Point your browser to http://localhost:7777 to make sure the app runs.'
+    '# Point your browser to http://localhost:7777 to make sure the app runs.',
   );
   console.log();
 

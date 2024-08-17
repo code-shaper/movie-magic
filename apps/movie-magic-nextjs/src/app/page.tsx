@@ -10,7 +10,7 @@ import { clsx } from 'clsx';
 async function fetchMovies(queryParams: QueryParams): Promise<MoviePagination> {
   const searchParamsString = queryParamsToSearchParams(queryParams);
   const resMovies = await api.get<MoviePagination>(
-    `/movies?${searchParamsString}`
+    `/movies?${searchParamsString}`,
   );
   return resMovies.data;
 }

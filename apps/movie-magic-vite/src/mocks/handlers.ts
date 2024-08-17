@@ -18,7 +18,7 @@ export const handlers = [
       // convert certFilters to upper case
       certFilters = certFilters.map((certFilter) => certFilter.toUpperCase());
       moviesResult = moviesResult.filter((movie) =>
-        certFilters.includes(movie.certificate)
+        certFilters.includes(movie.certificate),
       );
     }
 
@@ -28,7 +28,7 @@ export const handlers = [
       switch (sort) {
         case 'RANK_ASC':
           moviesResult = moviesResult.sort(
-            (movie1, movie2) => movie1.rank - movie2.rank
+            (movie1, movie2) => movie1.rank - movie2.rank,
           );
           break;
       }
