@@ -15,7 +15,7 @@
     "lint:fix": "npm run lint -- --fix",
     "start": "next start",
     "storybook": "storybook dev -p 6008",
-    "test": "jest --coverage",
+    "test": "jest --coverage --passWithNoTests",
     "_build": "next build",
     "_codegen": "graphql-codegen --config codegen.ts"
   },
@@ -42,10 +42,9 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^1.6.1",
-    "@code-shaper/eslint-config": "^1.*",
+    "@chromatic-com/storybook": "^1.7.0",
     "@code-shaper/jest-config": "^1.*",
-    "@dword-design/eslint-plugin-import-alias": "^5.0.1",
+    "@dword-design/eslint-plugin-import-alias": "^5.1.1",
     "@faker-js/faker": "^8.4.1",
     "@graphql-codegen/cli": "^5.0.2",
     "@graphql-codegen/client-preset": "^4.3.3",
@@ -67,7 +66,7 @@
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
-    "@types/node": "^22.4.0",
+    "@types/node": "^22.4.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
@@ -84,9 +83,5 @@
     "tailwindcss": "^3.4.10",
     "ts-jest": "^29.2.4",
     "typescript": "^5.5.4"
-  },
-  "engines": {
-    "node": "^20.*",
-    "npm": "^10.*"
   }
 }

@@ -20,7 +20,7 @@
     "_codegen": "echo add any code generation steps here"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.51.23",
+    "@tanstack/react-query": "^5.51.24",
     "axios": "^1.7.4",
     "clsx": "^2.1.1",
     "next": "^14.2.5",
@@ -28,10 +28,9 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^1.6.1",
-    "@code-shaper/eslint-config": "^1.*",
+    "@chromatic-com/storybook": "^1.7.0",
     "@code-shaper/jest-config": "^1.*",
-    "@dword-design/eslint-plugin-import-alias": "^5.0.1",
+    "@dword-design/eslint-plugin-import-alias": "^5.1.1",
     "@faker-js/faker": "^8.4.1",
     "@storybook/addon-a11y": "^8.2.9",
     "@storybook/addon-docs": "^8.2.9",
@@ -48,7 +47,7 @@
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
-    "@types/node": "^22.4.0",
+    "@types/node": "^22.4.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",

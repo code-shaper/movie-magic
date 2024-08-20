@@ -1,6 +1,6 @@
 {
   "name": "movie-magic",
-  "description": "Code Shaper examples",
+  "description": "Example app for the Code Shaper tutorial",
   "version": "0.0.1",
   "private": true,
   "repository": {
