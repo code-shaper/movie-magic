@@ -1,9 +1,12 @@
+import { db } from '@/db/drizzle';
+import { DrizzleAdapter } from '@auth/drizzle-adapter';
 import type { NextAuthConfig } from 'next-auth';
 import NextAuth from 'next-auth';
 import GitHub from 'next-auth/providers/github';
 import Google from 'next-auth/providers/google';
 
 const config: NextAuthConfig = {
+  adapter: DrizzleAdapter(db),
   providers: [GitHub, Google],
   pages: {
     signIn: '/sign-in',

@@ -49,6 +49,12 @@ module.exports = {
         '@graphql-eslint/require-nullable-result-in-root': 'off',
       },
     },
+    {
+      files: ['src/db/schema.ts'],
+      rules: {
+        camelcase: 'off',
+      },
+    },
   ],
   rules: {
     '@dword-design/import-alias/prefer-alias': [

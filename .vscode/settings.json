@@ -3,6 +3,7 @@
     "asynciterable",
     "autodocs",
     "Bhatia",
+    "camelcase",
     "clsx",
     "codegen",
     "commitlint",
