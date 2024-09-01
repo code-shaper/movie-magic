@@ -1,5 +1,6 @@
 import { siteConfig } from '@/config/site';
 import { AppProvider } from '@/providers';
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { unstable_noStore as noStore } from 'next/cache';
 import { Inter, Roboto_Mono as RobotoMono } from 'next/font/google';
@@ -81,7 +82,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
       suppressHydrationWarning
     >
       <body>
-        <AppProvider baseApiUrl={baseApiUrl}>{children}</AppProvider>
+        <AppProvider baseApiUrl={baseApiUrl}>
+          {children}
+          <Analytics />
+        </AppProvider>
       </body>
     </html>
   );
