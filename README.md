@@ -16,9 +16,8 @@ screenshot below:
 This is just the beginning. With Code Shaper, you can continuously add features
 to build production-grade applications. We've done precisely that with the Movie
 Magic Ultimate application included in this repository. This version features a
-meticulously crafted visual design, a real GraphQL backend, user authentication,
-and many other features found in real-world applications. Check out the
-screenshot below:
+meticulously crafted visual design, a real GraphQL backend, and many other
+features found in real-world applications. Check out the screenshot below:
 
 ![Movie Magic Ultimate](assets/movie-magic-ultimate.png)
 
@@ -46,9 +45,6 @@ We have the Movie Magic application coded using 4 different stacks:
 cp apps/movie-magic-nextjs/.env.example apps/movie-magic-nextjs/.env.local
 cp apps/movie-magic-vite/.env.example apps/movie-magic-vite/.env.local
 cp apps/movie-magic-ultimate/.env.example apps/movie-magic-ultimate/.env.local
-
-# Note: apps/movie-magic-ultimate/.env.local requires you to fill in your own keys.
-# You may want to run the live demo instead.
 
 # build all apps
 nvm use        # use the required version of node

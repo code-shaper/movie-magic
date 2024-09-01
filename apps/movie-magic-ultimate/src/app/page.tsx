@@ -1,11 +1,8 @@
 import { AppFooter } from '@/components/AppFooter';
 import { MinimalHeader } from '@/components/AppHeader';
 import { Button } from '@/components/ui/button';
-import { siteConfig } from '@/config/site';
-import { auth } from '@/lib/auth';
 import Image from 'next/image';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
 
 function Content() {
   return (
@@ -19,12 +16,9 @@ function Content() {
           Watch a world of blockbusters, classics, and exclusive originals with
           our premium service.
         </p>
-        <div className="mt-10 space-y-2">
-          <p className="text-sm text-muted-foreground">
-            New to {siteConfig.name}?
-          </p>
+        <div className="mt-10">
           <Button asChild size="lg">
-            <Link href="/sign-up" prefetch={false}>
+            <Link href="/movies" prefetch={false}>
               Get Started
             </Link>
           </Button>
@@ -56,13 +50,7 @@ function HeroImage() {
  *    on larger screens.
  *      [Content] [ Image ]
  */
-export default async function HomePage() {
-  // if user is authenticated, redirect to movies page
-  const session = await auth();
-  if (session) {
-    redirect('/movies');
-  }
-
+export default function HomePage() {
   return (
     <>
       {/* Vertical Layout < lg */}
