@@ -1,5 +1,6 @@
 import {
   Check,
+  ChevronLeft,
   ChevronRight,
   Circle,
   Dot,
@@ -17,6 +18,7 @@ export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
   check: Check,
+  chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
   circle: Circle,
   dot: Dot,

@@ -3,6 +3,7 @@
 import { MovieItem } from './MovieItem';
 import type { FragmentType } from '@/generated/gql';
 import { graphql, getFragmentData } from '@/generated/gql';
+import { useRouter } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 
 /*
@@ -27,11 +28,14 @@ export function MovieList({
   moviesResponse: moviesResponseProp,
 }: MovieListProps) {
   const moviesResponse = getFragmentData(MovieListFragment, moviesResponseProp);
+
   const [selectedIndex, setSelectedIndex] = useState(0);
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
 
+  const router = useRouter();
+
   const navigateToMovie = (movieId: string) => {
-    console.log('Navigating to movie:', movieId);
+    router.push(`/movies/${movieId}`);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
