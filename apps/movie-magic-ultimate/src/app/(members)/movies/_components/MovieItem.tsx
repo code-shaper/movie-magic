@@ -30,11 +30,11 @@ const MovieItemFragment = graphql(/* GraphQL */ `
   }
 `);
 
-export interface MovieItemProps {
+interface MovieItemComponentProps {
   movie: FragmentType<typeof MovieItemFragment>;
 }
 
-function MovieRank({ movie: movieProp }: MovieItemProps) {
+function MovieRank({ movie: movieProp }: MovieItemComponentProps) {
   const movie = getFragmentData(MovieItemFragment, movieProp);
 
   return (
@@ -44,7 +44,7 @@ function MovieRank({ movie: movieProp }: MovieItemProps) {
   );
 }
 
-function MovieImage({ movie: movieProp }: MovieItemProps) {
+function MovieImage({ movie: movieProp }: MovieItemComponentProps) {
   const movie = getFragmentData(MovieItemFragment, movieProp);
 
   return movie.image ? (
@@ -62,7 +62,7 @@ function MovieImage({ movie: movieProp }: MovieItemProps) {
   );
 }
 
-function MovieTitle({ movie: movieProp }: MovieItemProps) {
+function MovieTitle({ movie: movieProp }: MovieItemComponentProps) {
   const movie = getFragmentData(MovieItemFragment, movieProp);
 
   /*
@@ -90,7 +90,7 @@ function MovieTitle({ movie: movieProp }: MovieItemProps) {
   );
 }
 
-function MovieRating({ movie: movieProp }: MovieItemProps) {
+function MovieRating({ movie: movieProp }: MovieItemComponentProps) {
   const movie = getFragmentData(MovieItemFragment, movieProp);
 
   return (
@@ -100,7 +100,7 @@ function MovieRating({ movie: movieProp }: MovieItemProps) {
   );
 }
 
-function MovieReleaseYear({ movie: movieProp }: MovieItemProps) {
+function MovieReleaseYear({ movie: movieProp }: MovieItemComponentProps) {
   const movie = getFragmentData(MovieItemFragment, movieProp);
 
   return (
@@ -110,7 +110,7 @@ function MovieReleaseYear({ movie: movieProp }: MovieItemProps) {
   );
 }
 
-function MovieRuntime({ movie: movieProp }: MovieItemProps) {
+function MovieRuntime({ movie: movieProp }: MovieItemComponentProps) {
   const movie = getFragmentData(MovieItemFragment, movieProp);
 
   return (
@@ -120,20 +120,19 @@ function MovieRuntime({ movie: movieProp }: MovieItemProps) {
   );
 }
 
-export function MovieItem({ movie: movieProp }: MovieItemProps) {
-  const movie = getFragmentData(MovieItemFragment, movieProp);
+export interface MovieItemProps {
+  movie: FragmentType<typeof MovieItemFragment>;
+}
 
+export function MovieItem({ movie: movieProp }: MovieItemProps) {
   return (
-    <li
-      className="flex items-center gap-x-3 rounded-md p-2 text-sm text-muted-foreground hover:bg-muted/50"
-      key={movie.id}
-    >
+    <article className="flex items-center gap-x-3 rounded-md p-2 text-sm text-muted-foreground hover:bg-muted/50">
       <MovieRank movie={movieProp} />
       <MovieImage movie={movieProp} />
       <MovieTitle movie={movieProp} />
       <MovieRating movie={movieProp} />
       <MovieReleaseYear movie={movieProp} />
       <MovieRuntime movie={movieProp} />
-    </li>
+    </article>
   );
 }

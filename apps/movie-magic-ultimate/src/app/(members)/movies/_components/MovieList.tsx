@@ -28,7 +28,9 @@ export function MovieList({
   return (
     <ul className="relative w-full overflow-auto py-2">
       {moviesResponse.movies.map((movie) => (
-        <MovieItem key={movie.id} movie={movie} />
+        <li key={movie.id}>
+          <MovieItem movie={movie} />
+        </li>
       ))}
     </ul>
   );
