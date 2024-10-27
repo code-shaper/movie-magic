@@ -10,7 +10,6 @@ import { graphql, getFragmentData } from '@/generated/gql';
 import type { MoviesRequest } from '@/generated/gql/graphql';
 import { MoviesRequestHelper as mrh } from '@/lib/MoviesRequestHelper';
 import { usePathname, useRouter } from 'next/navigation';
-
 import { useState } from 'react';
 
 /*
