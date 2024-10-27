@@ -1,4 +1,4 @@
-import { MovieItem } from './_components/MovieItem';
+import { MovieList } from './_components/MovieList';
 import { MovieListHeader } from './_components/MovieListHeader';
 import { Toolbar } from './_components/Toolbar';
 import { graphql } from '@/generated/gql';
@@ -22,10 +22,7 @@ export const dynamic = 'force-dynamic';
 const moviesPageDocument = graphql(/* GraphQL */ `
   query moviesPage($input: MoviesRequest!) {
     movies(input: $input) {
-      movies {
-        id
-        ...MovieItem
-      }
+      ...MovieList
       pageInfo {
         totalItems
         ...ToolbarInfo
@@ -45,17 +42,13 @@ export default async function MoviesPage({ searchParams }: MoviesPageProps) {
     variables: { input: moviesRequest },
   });
   const { movies: moviesResponse } = data;
-  const { movies, pageInfo } = moviesResponse;
+  const { pageInfo } = moviesResponse;
 
   return (
     <>
       <Toolbar moviesRequest={moviesRequest} toolbarInfo={pageInfo} />
       <MovieListHeader />
-      <ul className="relative w-full overflow-auto py-2">
-        {movies.map((movie) => (
-          <MovieItem key={movie.id} movie={movie} />
-        ))}
-      </ul>
+      <MovieList moviesResponse={moviesResponse} />
     </>
   );
 }
