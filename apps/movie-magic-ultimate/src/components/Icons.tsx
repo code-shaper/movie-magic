@@ -3,12 +3,16 @@ import {
   ChevronLeft,
   ChevronRight,
   Circle,
+  Calendar,
+  Clock,
   Dot,
   Film,
   Globe,
   Image,
   ListFilter,
   Menu,
+  Play,
+  Star,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -21,6 +25,8 @@ export const Icons = {
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
   circle: Circle,
+  clock: Clock,
+  calendar: Calendar,
   dot: Dot,
   film: Film,
   gitHub: (props: IconProps) => (
@@ -75,6 +81,8 @@ export const Icons = {
       />
     </svg>
   ),
+  play: Play,
+  star: Star,
   sun: (props: IconProps) => (
     // https://www.radix-ui.com/icons
     <svg fill="none" height="15" viewBox="0 0 15 15" width="15" {...props}>
