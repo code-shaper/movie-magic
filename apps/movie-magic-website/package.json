@@ -6,6 +6,6 @@
     "dev": "serve -p 7777 src"
   },
   "devDependencies": {
-    "serve": "^14.2.3"
+    "serve": "^14.2.4"
   }
 }
